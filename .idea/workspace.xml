@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eshop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ContactsPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/LoginPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/MainPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProductPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/bg-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Contacts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/LoginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop.war.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/ru/alx/javaproject/eshop/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/ru/alx/javaproject/eshop/controller/LoginPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/ru/alx/javaproject/eshop/controller/MainPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/templates/LoginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/classes/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/attoparser-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/classmate-1.3.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/hibernate-validator-6.0.11.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-annotations-2.9.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-core-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-databind-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-datatype-jdk8-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-datatype-jsr310-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jackson-module-parameter-names-2.9.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/javax.annotation-api-1.3.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jboss-logging-3.3.2.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/log4j-api-2.10.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/log4j-to-slf4j-2.10.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/logback-classic-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/logback-core-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/snakeyaml-1.19.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-aop-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-beans-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-autoconfigure-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-devtools-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-json-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-logging-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-thymeleaf-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-tomcat-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-boot-starter-web-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-context-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-core-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-expression-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-jcl-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-web-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/spring-webmvc-5.0.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/thymeleaf-3.0.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/thymeleaf-extras-java8time-3.0.1.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/thymeleaf-spring5-3.0.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/tomcat-embed-core-8.5.32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/tomcat-embed-el-8.5.32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/tomcat-embed-websocket-8.5.32.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/unbescape-1.1.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/EShop/WEB-INF/lib/validation-api-2.0.1.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ContactsPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/LoginPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/MainPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ProductPageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/PreviewPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/bg-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/CarRent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/Contacts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/LoginPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/Products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1W3o4dbALnJLlRv8Wb7AwV4KeQN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalResources" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oleksandr.vasilenko\Downloads\registration-log\eshop\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.alx.javaproject.eshop.Application" />
+      <module name="eshop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.alx.javaproject.eshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="" />
+      <created>1578387448925</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578387448925</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

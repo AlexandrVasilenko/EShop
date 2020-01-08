@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <title>EShop</title>
+</head>
+
+<body>
+
+<div class="float-right">
+        <a href="./MainPage" ><img class="logo" src="./images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
+    </div>
+
+<div class="container" id="top-buttons"> 
+        <div class="row">
+    <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Products'" value="Products" />
+    <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Contacts'" value="Contacts" />
+    <input type="button" class="btn btn-primary btn-lg mr-5" disabled onclick="location.href ='./index'" value="Primary" />
+    <input type="button" class="btn btn-danger btn-lg mr-5" onclick="location.href ='./Admin'" value="Admin" />
+        </div>
+</div>
+
+<div class="mask rgba-black-light align-items-center">
+        <div class="container">
+                <div class="row">
+                        <div class="col-md-12 mb-4 white-text text-center">
+                                <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown" data-wow-delay="0.3s"><strong>Eshop contacts</strong></h1>
+                                <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                                <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${pageOwner}></p></strong></h5>
+                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>+420 123 456 789</strong></h6>
+                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>aleksander.vasilenko@gmail.com</strong></h6>
+                        </div>
+                </div>
+        </div>
+</div>
+
+
+
+
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

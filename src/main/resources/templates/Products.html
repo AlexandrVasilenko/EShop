@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+                <head>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+                        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+                        <title>EShop</title>
+                    </head>
+                    
+                    <body>
+                    
+                    <div class="float-right">
+                            <a href="./MainPage" ><img class="logo" src="./images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
+                        </div>
+                    
+                    <div class="container" id="top-buttons"> 
+                            <div class="row">
+                        <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Products'" value="Products" />
+                        <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Contacts'" value="Contacts" />
+                        <input type="button" class="btn btn-primary btn-lg mr-5" disabled onclick="location.href ='./index'" value="Primary" />
+                        <input type="button" class="btn btn-danger btn-lg mr-5" onclick="location.href ='./Admin'" value="Admin" />
+                            </div>
+                    </div>
+                    
+<div class="container">
+        <table class="table table-hover table-primary">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Picture</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">On Stock</th>
+                    <th scope="col">Order</th>
+                  </tr>
+                </thead>
+                <tbody>
+                     <tr th:each="car, counter : ${listOfProducts}">
+                        <td  th:text="${counter.index + 1}"></td> 
+                        <td th:text="${car}"></td>
+                        <td th:text="${car}"></td>
+                        <td th:text="${car}"></td>
+                        <td th:text="${car}"></td>
+                        <td th:text="${car}"></td>
+                    </tr>
+                   
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                    <td>@mdo</td>
+                    <td>@mdo</td>
+                  </tr>
+                  
+                  
+                </tbody>
+              </table>
+    
+</div>
+
+
+
+
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,24 @@
+package ru.alx.javaproject.eshop.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDate;
+
+@Controller
+public class MainPageController {
+
+    @RequestMapping("/MainPage")
+    public ModelAndView mainPageLoader (){
+        ModelAndView modelAndView;
+        modelAndView = new ModelAndView("index");
+
+        LocalDate today = LocalDate.now();
+
+        modelAndView.addObject("todayDate", today);
+        return modelAndView;
+
+    }
+
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Main Menu</title>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div id="car_rent_content">
+
+<div class="general_button">
+<p id="welcome_text"><a href="MainPage.html" > CarWorld </a></p>
+</div>
+
+<div class="page_info">
+<p id="mainpage_text" align="center"> Cars for Rent:</p></br>
+</div>
+ 
+  
+ 
+ 
+<div>
+ <table id="table_header" >
+<tr id="main_tr">
+    <th class="table_column_view">View</th>
+    <th class="table_column_car_brand">Car Brand</th> 
+    <th class="table_column_car_model">Car Model</th>
+    <th class="table_column_engine">Engine</th>
+    <th class="table_column_ppd">Price per day</th>
+    <th class="table_column_deposit">Deposit</th>
+</tr>
+</table>
+</div>
+<div id="table_list">
+<table id="car_rent_table" cellspacing="0" >
+
+<tr>
+    <td class="table_column_view"><img class="carImg" src="images/bmw-e60.jpg" /></td>
+    <td class="table_column_car_brand">BMW</td> 
+    <td class="table_column_car_model">E60</td>
+    <td class="table_column_engine">530dA</td>
+    <td class="table_column_ppd">800 CZK</td>
+    <td class="table_column_deposit">10,000 CZK</td>
+    
+</tr>
+
+<tr>
+    <td><img class="carImg" src="images/bmw-e92.jpg" /></td>
+    <td>BMW</td> 
+    <td>E92</td>
+    <td>335iA</td>
+    <td>1,000 CZK</td>
+    <td>14,000 CZK</td>
+    
+</tr>
+
+<tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr><tr>
+    <td><img class="carImg" src="images/audi-a7.jpg" /></td>
+    <td>AUDI</td> 
+    <td>A7</td>
+    <td>3.0TFSI</td>
+    <td>1,300 CZK</td>
+    <td>27,000 CZK</td>
+    
+</tr>
+
+<tr th:each="txt : ${completedCar}">
+    <td class="table_column_view"><img class="carImg" th:src="${txt.carImage}"/></td>
+    <td class="table_column_car_brand" th:text="${txt.carBrand}"></td> 
+    <td class="table_column_car_model" th:text="${txt.carModel}"></td>
+    <td class="table_column_engine" th:text="${txt.engine}"></td>
+    <td class="table_column_ppd" th:text="${txt.ppd}"></td>
+    <td class="table_column_deposit" th:text="${txt.deposit}"></td>
+    
+</tr>
+
+</table>
+</div>
+ 
+ </div>
+ 
+
+
+</body>
+</html>
