@@ -10,7 +10,7 @@ import ru.alx.javaproject.eshop.model.Profile;
 public class AdminPageController {
 
     @Autowired
-    Profile profile;
+    private Profile profile;
 
     @RequestMapping("/Admin")
     public ModelAndView adminPageLoader (){

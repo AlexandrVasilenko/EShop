@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/Ability.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/ProfileQuestionnaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/LoginPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProductPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProductPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Products.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/MainPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/LoginPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ProductPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ProductPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/PreviewPage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/CarRent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Products.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/model/ProfileQuestionnaire.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578494255893</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new content added">
+      <created>1578573980751</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578573980751</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Git repo creation commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Git repo creation commit" />
+    <MESSAGE value="new content added" />
+    <option name="LAST_COMMIT_MESSAGE" value="new content added" />
   </component>
 </project>

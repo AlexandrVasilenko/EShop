@@ -15,13 +15,19 @@ import java.util.List;
 public class ProfilePageController {
 
     @Autowired
-    Profile profile;
+    private Profile profile;
 
     @RequestMapping(value = "/Profile", method = RequestMethod.POST)
     public ModelAndView getProfileInfo(Profile profile){
         this.profile.setPlayerName(profile.getPlayerName());
         this.profile.setPlayerAge(profile.getPlayerAge());
         this.profile.setSmoking(profile.isSmoking());
+        this.profile.setGenderMale(profile.isGenderMale());
+        this.profile.setAlcohol(profile.isAlcohol());
+        this.profile.setInLove(profile.isInLove());
+        this.profile.setNutritionType(profile.getNutritionType());
+        this.profile.setSleepingHours(profile.getSleepingHours());
+        this.profile.setSportActivity(profile.getSportActivity());
 
         ModelAndView modelAndView = new ModelAndView("redirect:/Admin");
 
@@ -34,7 +40,7 @@ public class ProfilePageController {
     public ModelAndView showLoginPage(){
         ModelAndView modelAndView = new ModelAndView("/Profile.html");
 
-        Profile profile = new Profile();
+
 
         //Arrays.stream(profile.getClass().getDeclaredFields()).forEach(field -> field.getName());
 

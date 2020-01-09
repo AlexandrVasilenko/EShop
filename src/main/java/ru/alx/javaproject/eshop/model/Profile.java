@@ -7,33 +7,37 @@ public class Profile {
 
     private String playerName;
     private String nutritionType;
-    private String sportActivityType;
 
     private int playerAge;
     private int sleepingHours;
+    private int sportActivity;
 
     private boolean smoking;
     private boolean alcohol;
     private boolean inLove;
+    private boolean genderMale;
 
-    public Profile(String playerName, int playerAge, boolean smoking) {
+    public Profile(String playerName, int playerAge, boolean smoking, boolean genderMale) {
         this.playerName = playerName;
         this.playerAge = playerAge;
         this.smoking = smoking;
+        this.genderMale = genderMale;
+
     }
 
-    public Profile(String playerName, String nutritionType, String sportActivityType, int playerAge, int sleepingHours, boolean smoking, boolean alcohol, boolean inLove) {
+    public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, boolean smoking, boolean alcohol, boolean inLove, boolean genderMale) {
         this.playerName = playerName;
         this.nutritionType = nutritionType;
-        this.sportActivityType = sportActivityType;
+        this.sportActivity = sportActivity;
         this.playerAge = playerAge;
         this.sleepingHours = sleepingHours;
         this.smoking = smoking;
         this.alcohol = alcohol;
         this.inLove = inLove;
+        this.genderMale = genderMale;
     }
 
-    public Profile () {
+    private Profile () {
 
     }
 
@@ -53,12 +57,12 @@ public class Profile {
         this.nutritionType = nutritionType;
     }
 
-    public String getSportActivityType() {
-        return sportActivityType;
+    public int getSportActivity() {
+        return sportActivity;
     }
 
-    public void setSportActivityType(String sportActivityType) {
-        this.sportActivityType = sportActivityType;
+    public void setSportActivity(int sportActivity) {
+        this.sportActivity = sportActivity;
     }
 
     public int getPlayerAge() {
@@ -101,18 +105,26 @@ public class Profile {
         this.inLove = inLove;
     }
 
+    public boolean isGenderMale() {
+        return genderMale;
+    }
+
+    public void setGenderMale(boolean genderMale) {
+        this.genderMale = genderMale;
+    }
+
     @Override
     public String toString() {
-
-        return  "Profile{" +
+        return "Profile{" +
                 "playerName='" + playerName + '\'' +
                 ", nutritionType='" + nutritionType + '\'' +
-                ", sportActivityType='" + sportActivityType + '\'' +
                 ", playerAge=" + playerAge +
                 ", sleepingHours=" + sleepingHours +
+                ", sportActivity=" + sportActivity +
                 ", smoking=" + smoking +
                 ", alcohol=" + alcohol +
                 ", inLove=" + inLove +
+                ", genderMale=" + genderMale +
                 '}';
     }
 }
