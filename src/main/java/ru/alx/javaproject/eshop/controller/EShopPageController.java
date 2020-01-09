@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class ProductPageController {
+public class EShopPageController {
 
-    @RequestMapping("/Products")
+    @RequestMapping("/EShop")
     public ModelAndView productPageLoader() {
-        ModelAndView modelAndView = new ModelAndView("products.html");
+        ModelAndView modelAndView = new ModelAndView("EShop.html");
 
 
 

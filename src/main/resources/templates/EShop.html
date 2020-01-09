@@ -6,21 +6,23 @@
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                         <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
                         <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-                        <title>EShop</title>
+                        <link rel="icon" href="../static/images/favicon.png" th:href="${'./images/favicon.png'}">
+                        <title>Mystery EShop</title>
                     </head>
                     
                     <body>
                     
                     <div class="float-right">
-                            <a href="./Welcome" ><img class="logo" src="./images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
+                            <a href="./Contacts" ><img class="logo" src="./images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
                         </div>
                     
-                    <div class="container" id="top-buttons"> 
+                        <div class="container" id="top-buttons"> 
                             <div class="row">
-                        <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Products'" value="Products" />
-                        <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Contacts'" value="Contacts" />
-                        <input type="button" class="btn btn-primary btn-lg mr-5" disabled onclick="location.href ='./index'" value="Primary" />
-                        <input type="button" class="btn btn-danger btn-lg mr-5" onclick="location.href ='./Admin'" value="Admin" />
+                                 <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Welcome'" value="Main" />        
+                                 <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Survey'" value="Survey" />
+                                 <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Profile'" value="Your Profile" />
+                                 <input type="button" class="btn btn-success btn-lg mr-5" onclick="location.href ='./EShop'" value="EShop" />
+                                 <input type="button" class="btn btn-danger btn-lg mr-5" disabled onclick="location.href ='./Admin'" value="Admin" />
                             </div>
                     </div>
 
