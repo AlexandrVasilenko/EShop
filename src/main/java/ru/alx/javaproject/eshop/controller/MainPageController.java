@@ -9,10 +9,10 @@ import java.time.LocalDate;
 @Controller
 public class MainPageController {
 
-    @RequestMapping("/MainPage")
+    @RequestMapping("/Welcome")
     public ModelAndView mainPageLoader (){
         ModelAndView modelAndView;
-        modelAndView = new ModelAndView("index");
+        modelAndView = new ModelAndView("MainPage");
 
         LocalDate today = LocalDate.now();
 
