@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.model.Profile;
+import ru.alx.javaproject.eshop.repository.ProfileRepository;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -15,10 +16,7 @@ import java.util.List;
 public class SurveyPageController {
 
     @Autowired
-    private Profile profile;
-
-    @Autowired
-    private ProfilePageController profilePageController;
+    private ProfileRepository profileRepository;
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
     public ModelAndView getProfileInfo(Profile profile){

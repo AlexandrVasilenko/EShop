@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="new content added">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ProfilePageController$NotFoundException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/Admin.html" afterDir="false" />
+    <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/repository/ProfileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/service/ProfileService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/SurveyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/SurveyPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -27,6 +32,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -118,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578912742347</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="new content added">
+      <created>1578913379380</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578913379380</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
