@@ -12,11 +12,15 @@ public class AdminPageController {
     @Autowired
     private Profile profile;
 
+    @Autowired
+    ProfilePageController profilePageController;
+
     @RequestMapping("/Admin")
     public ModelAndView adminPageLoader (){
-        ModelAndView modelAndView = new ModelAndView("/admin.html");
+        ModelAndView modelAndView = new ModelAndView("/Admin.html");
 
-        modelAndView.addObject("profileData",profile);
+
+        modelAndView.addObject("profiles", profilePageController.profiles);
 
         return modelAndView;
     }

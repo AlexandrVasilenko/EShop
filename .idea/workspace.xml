@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="">
+    <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="new content added">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/ru/alx/javaproject/eshop/controller/ProfilePageController$NotFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/Admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578585387348</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="new content added">
+      <created>1578912742347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578912742347</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-    <link rel="icon" href="../static/images/favicon.png" th:href="${'./images/favicon.png'}">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="${'./css/bootstrap.min.css'}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="${'./css/style.css'}"/>
+<link rel="icon" href="../static/images/favicon.png" th:href="${'./images/favicon.png'}">
     <title>Mystery EShop</title>
 </head>
 
@@ -26,27 +26,47 @@
                 </div>
         </div>
 
-<div class="mask rgba-black-light align-items-center">
-        <div class="container">
-                <div class="row">
-                        <div class="col-md-12 mb-4 white-text text-center">
-                                <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown" data-wow-delay="0.3s"><strong>Data</strong></h1>
-                                <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
-                                <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.playerName}>Name</p></strong></h5>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.playerAge}>Age</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.genderMale}>Boolean</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.smoking}>Boolean</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.alcohol}>Boolean</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.inLove}>Boolean</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.nutritionType}>String</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.sleepingHours}>Integer</p></strong></h6>
-                                <h6 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong><p th:text=${profileData.sportActivity}>Integer</p></strong></h6>
-                        </div>
-                </div>
-        </div>
+
+<div class="container">
+    <table class="table table-hover table-primary">
+            <thead>
+              <tr>
+                <th scope="col" class="align-middle">#</th>
+                <th scope="col" class="align-middle">Id</th>
+                <th scope="col" class="align-middle">Name</th>
+                <th scope="col" class="align-middle">Age</th>
+                <th scope="col" class="align-middle">Gender</th>
+                <th scope="col" class="align-middle">Smoking</th>
+                <th scope="col" class="align-middle">Alcohol</th>
+                <th scope="col" class="align-middle text-center">Nutrition Type</th>
+                <th scope="col" class="align-middle text-center">Sleeping hours <br> (per day)</th>
+                <th scope="col" class="align-middle text-center">Sport activity hours <br> (per week)</th>
+                <th scope="col" class="align-middle text-center">Is person in Love</th>
+              </tr>
+            </thead>
+            <tbody>
+                 <tr th:each="profile, counter: ${profiles}">
+                    <td class="align-middle text-center" th:text="${counter.index + 1}">1</td>
+                    <td class="align-middle text-center" th:text="${profile.playerId}">1234</td> 
+                    <td class="align-middle text-center" th:text="${profile.playerName}">Robert</td> 
+                    <td class="align-middle text-center" th:text="${profile.playerAge}">33</td>
+                    <td class="align-middle text-center" th:text="${profile.genderMale}">Male</td>
+                    <td class="align-middle text-center" th:text="${profile.smoking}">No</td>
+                    <td class="align-middle text-center" th:text="${profile.alcohol}">Yes</td>
+                    <td class="align-middle text-center" th:text="${profile.nutritionType}">MeatEater</td>
+                    <td class="align-middle text-center" th:text="${profile.sleepingHours}">8</td>
+                    <td class="align-middle text-center" th:text="${profile.sportActivity}">5</td>
+                    <td class="align-middle text-center" th:text="${profile.inLove}">Yes</td>
+                    
+                </tr>
+               
+              
+              
+              
+            </tbody>
+          </table>
+
 </div>
-
-
 
 
 <script src="../static/js/bootstrap.min.js"></script>

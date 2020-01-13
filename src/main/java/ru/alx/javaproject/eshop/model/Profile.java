@@ -8,6 +8,7 @@ public class Profile {
     private String playerName;
     private String nutritionType;
 
+    private int playerId;
     private int playerAge;
     private int sleepingHours;
     private int sportActivity;
@@ -17,17 +18,19 @@ public class Profile {
     private boolean inLove;
     private boolean genderMale;
 
-    public Profile(String playerName, int playerAge, boolean smoking, boolean genderMale) {
+    public Profile(String playerName, int playerId, int playerAge, boolean smoking, boolean genderMale) {
         this.playerName = playerName;
+        this.playerId = playerId;
         this.playerAge = playerAge;
         this.smoking = smoking;
         this.genderMale = genderMale;
 
     }
 
-    public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, boolean smoking, boolean alcohol, boolean inLove, boolean genderMale) {
+    public Profile(String playerName, String nutritionType, int playerId, int sportActivity, int playerAge, int sleepingHours, boolean smoking, boolean alcohol, boolean inLove, boolean genderMale) {
         this.playerName = playerName;
         this.nutritionType = nutritionType;
+        this.playerId = playerId;
         this.sportActivity = sportActivity;
         this.playerAge = playerAge;
         this.sleepingHours = sleepingHours;
@@ -39,6 +42,14 @@ public class Profile {
 
     private Profile () {
 
+    }
+
+    public int getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
     }
 
     public String getPlayerName() {
