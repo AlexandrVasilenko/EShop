@@ -45,7 +45,7 @@
               </tr>
             </thead>
             <tbody>
-                 <tr th:each="profile, counter: ${profiles}">
+                 <tr th:each="profile, counter: ${profile}">
                     <td class="align-middle text-center" th:text="${counter.index + 1}">1</td>
                     <td class="align-middle text-center" th:text="${profile.playerId}">1234</td> 
                     <td class="align-middle text-center" th:text="${profile.playerName}">Robert</td> 

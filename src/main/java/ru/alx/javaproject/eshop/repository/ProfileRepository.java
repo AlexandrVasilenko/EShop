@@ -27,7 +27,14 @@ public class ProfileRepository {
         return profileList.get(index);
     }
 
-    public synchronized Profile save (Profile profile ){ return profile;}
+    public synchronized Profile save (Profile profile)    {
+        int index = getIndex(profile.getPlayerId());
+
+        if (index == -1){
+            return add(profile);
+        }
+        return update(profile,index);
+    }
 
 
     public synchronized void deleteById (int id) {
@@ -49,5 +56,21 @@ public class ProfileRepository {
             }
         }
         return -1;
+    }
+
+    private Profile update(Profile profile, int index){
+        Profile newProfile = clone(profile);
+        profileList.set(index,newProfile);
+        return clone(newProfile);
+    }
+
+    private Profile add (Profile profile){
+        Profile newProfile = clone(profile);
+        profileList.add(newProfile);
+        return clone(newProfile);
+    }
+
+    private Profile clone (Profile profile){
+        return new Profile (profile.getPlayerName(),profile.getNutritionType(),profile.getPlayerId(),profile.getSportActivity(),profile.getPlayerAge(),profile.getSleepingHours(),profile.isSmoking(),profile.isAlcohol(),profile.isInLove(),profile.isGenderMale());
     }
 }

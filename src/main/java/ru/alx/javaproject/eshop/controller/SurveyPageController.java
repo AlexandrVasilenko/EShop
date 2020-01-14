@@ -20,7 +20,13 @@ public class SurveyPageController {
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
     public ModelAndView getProfileInfo(Profile profile){
-        this.profile.setPlayerId(1);
+
+        profile.setPlayerId(profile.getPlayerName().hashCode());
+        profileRepository.save(profile);
+
+
+
+        /*this.profile.setPlayerId(1);
         this.profile.setPlayerName(profile.getPlayerName());
         this.profile.setPlayerAge(profile.getPlayerAge());
         this.profile.setSmoking(profile.isSmoking());
@@ -30,9 +36,9 @@ public class SurveyPageController {
         this.profile.setNutritionType(profile.getNutritionType());
         this.profile.setSleepingHours(profile.getSleepingHours());
         this.profile.setSportActivity(profile.getSportActivity());
-        profilePageController.profiles.add(this.profile);
+        profilePageController.profiles.add(this.profile);*/
 
-        ModelAndView modelAndView = new ModelAndView("redirect:/Profile");
+        ModelAndView modelAndView = new ModelAndView("redirect:/Profile/" + profile.getPlayerId());
 
         return modelAndView;
 

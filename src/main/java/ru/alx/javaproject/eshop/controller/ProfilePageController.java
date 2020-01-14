@@ -15,19 +15,30 @@ import ru.alx.javaproject.eshop.repository.ProfileRepository;
 public class ProfilePageController {
 
     @Autowired
+    Profile profile;
+
+    @Autowired
     private ProfileRepository profileRepository;
 
     @RequestMapping(value = "/Profile/{profileId}", method = RequestMethod.GET)
-    public ModelAndView profilePageLoader(@PathVariable("playerId") int playerId) throws NotFoundException {
+    public ModelAndView profilePageLoader(@PathVariable("profileId") int playerId) throws NotFoundException {
 
         Profile profile = profileRepository.findById(playerId);
         if (profile == null) {
             throw new NotFoundException("Profile is not found");
         }
 
-        ModelAndView modelAndView = new ModelAndView("/Profile.html");
+        ModelAndView modelAndView = new ModelAndView("/Profile");
         modelAndView.addObject("profile", profile);
         return modelAndView;
     }
+
+    @RequestMapping (value = "/Profile")
+    public ModelAndView defaultProfilePageLoader (){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("profile", profile);
+        return modelAndView;
+    }
+
 }
 

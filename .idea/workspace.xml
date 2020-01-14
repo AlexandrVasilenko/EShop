@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="148d3e4b-bffc-4cc8-9fda-e078c74e8fc4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/repository/ProfileRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/service/ProfileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/AdminPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/ProfilePageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/SurveyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/controller/SurveyPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/repository/ProfileRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/alx/javaproject/eshop/repository/ProfileRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Profile.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +35,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -131,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578913379380</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="beta commit (not working)">
+      <created>1579015607155</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579015607155</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +145,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -149,6 +157,7 @@
     <MESSAGE value="Git repo creation commit" />
     <MESSAGE value="READY - Profile page" />
     <MESSAGE value="new content added" />
-    <option name="LAST_COMMIT_MESSAGE" value="new content added" />
+    <MESSAGE value="beta commit (not working)" />
+    <option name="LAST_COMMIT_MESSAGE" value="beta commit (not working)" />
   </component>
 </project>
