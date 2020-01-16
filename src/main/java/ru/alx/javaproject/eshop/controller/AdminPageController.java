@@ -11,6 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.model.Profile;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class AdminPageController {
 
@@ -24,12 +27,17 @@ public class AdminPageController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "Admin/{playerId}", method = {RequestMethod.POST, RequestMethod.DELETE}, params = "_method=delete")
+    @RequestMapping(value = "Admin/{playerId}", method = {RequestMethod.POST, RequestMethod.DELETE})
     public ModelAndView adminPageDeleteProfile(@PathVariable ("playerId") int id){
         ModelAndView modelAndView = new ModelAndView("redirect:../Admin");
         profileRepository.delete(id);
+        return modelAndView;
+    }
 
-
+    @RequestMapping(value = "Admin", method = RequestMethod.POST)
+    public ModelAndView adminPageDeleteAll(){
+        ModelAndView modelAndView = new ModelAndView("redirect:Admin");
+        profileRepository.deleteAll();
         return modelAndView;
     }
 }

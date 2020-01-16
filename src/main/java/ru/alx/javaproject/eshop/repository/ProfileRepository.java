@@ -45,6 +45,12 @@ public class ProfileRepository {
         profileList.remove(index);
     }
 
+    public synchronized void deleteAll(){
+        for (Profile profile: findAll()) {
+            delete(profile.getPlayerId());
+        }
+    }
+
 
 
 
