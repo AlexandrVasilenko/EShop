@@ -7,6 +7,7 @@ public class Profile {
 
     private String playerName;
     private String nutritionType;
+    private String gender;
 
     private int playerId;
     private int playerAge;
@@ -16,28 +17,21 @@ public class Profile {
     private boolean smoking;
     private boolean alcohol;
     private boolean inLove;
-    private boolean genderMale;
 
-    public Profile(String playerName, int playerId, int playerAge, boolean smoking, boolean genderMale) {
-        this.playerName = playerName;
-        this.playerId = playerId;
-        this.playerAge = playerAge;
-        this.smoking = smoking;
-        this.genderMale = genderMale;
 
-    }
 
-    public Profile(String playerName, String nutritionType, int playerId, int sportActivity, int playerAge, int sleepingHours, boolean smoking, boolean alcohol, boolean inLove, boolean genderMale) {
+    public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, Boolean smoking, Boolean alcohol, Boolean inLove, String gender) {
         this.playerName = playerName;
         this.nutritionType = nutritionType;
-        this.playerId = playerId;
+        this.playerId = Math.abs(playerName.hashCode() + nutritionType.hashCode() + playerAge + sleepingHours);
         this.sportActivity = sportActivity;
         this.playerAge = playerAge;
         this.sleepingHours = sleepingHours;
-        this.smoking = smoking;
-        this.alcohol = alcohol;
-        this.inLove = inLove;
-        this.genderMale = genderMale;
+        this.gender = gender;
+        this.alcohol = alcohol != null && alcohol;
+        this.smoking = smoking != null && smoking;
+        this.inLove = inLove != null && inLove;
+
     }
 
     private Profile () {
@@ -116,12 +110,12 @@ public class Profile {
         this.inLove = inLove;
     }
 
-    public boolean isGenderMale() {
-        return genderMale;
+    public String getGender() {
+        return gender;
     }
 
-    public void setGenderMale(boolean genderMale) {
-        this.genderMale = genderMale;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override
@@ -135,7 +129,7 @@ public class Profile {
                 ", smoking=" + smoking +
                 ", alcohol=" + alcohol +
                 ", inLove=" + inLove +
-                ", genderMale=" + genderMale +
+                ", gender=" + gender +
                 '}';
     }
 }

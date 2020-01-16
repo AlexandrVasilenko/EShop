@@ -77,6 +77,7 @@ public class ProfileRepository {
     }
 
     private Profile clone (Profile profile){
-        return new Profile (profile.getPlayerName(),profile.getNutritionType(),profile.getPlayerId(),profile.getSportActivity(),profile.getPlayerAge(),profile.getSleepingHours(),profile.isSmoking(),profile.isAlcohol(),profile.isInLove(),profile.isGenderMale());
+        return new Profile (profile.getPlayerName(),profile.getNutritionType(),profile.getSportActivity(),profile.getPlayerAge(),profile.getSleepingHours(),profile.isSmoking(),profile.isAlcohol(),profile.isInLove(),
+                profile.getGender());
     }
 }

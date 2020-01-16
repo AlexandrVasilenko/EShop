@@ -27,7 +27,7 @@ public class ProfilePageController {
             throw new Exception("Profile is not found");
         }
 
-        ModelAndView modelAndView = new ModelAndView("Profile.html");
+        ModelAndView modelAndView = new ModelAndView("Profile");
         modelAndView.addObject("profile", profile);
         return modelAndView;
     }
