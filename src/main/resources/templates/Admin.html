@@ -34,7 +34,7 @@
         
       
         <font size="6">List of all filled surveys </font>
-        <input type="submit" name="showAll" value="show all" class="btn btn-primary btn-sm"/>
+        <input type="submit" name="deleteAll" value="Delete all" class="btn btn-danger btn-sm"/>
          
     </form> 
         <table class="table table-hover table-primary">
@@ -51,12 +51,12 @@
                         <td th:text="${profile.playerId}">1234</td> 
                         <td th:text="${profile.playerName}">Robert</td> 
                         <td>
-                          <a th:href="${'Profile/' + profile.playerId +'.html'}"
+                          <a th:href="${'Profile/' + profile.playerId}"
                               href="profile.html" class="button"><strong>More details</strong> </a> 
                         </td>
                         <td>
-                            <form th:action="${profile.playerId + '.html'}" method="post">
-                                
+                            <form th:action="'Admin/' + ${profile.playerId}" method="post">
+                                <input type="hidden" name="_method" value="delete"/>
                                 <input type="submit" name="delete" value="Delete profile" class="btn btn-danger btn-sm "/>
                             </form>
                         </td>

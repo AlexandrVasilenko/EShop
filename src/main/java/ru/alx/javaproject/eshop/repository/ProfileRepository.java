@@ -19,7 +19,7 @@ public class ProfileRepository {
         return profiles;
     }
 
-    public synchronized Profile findById (int id) {
+    public synchronized Profile findOne(int id) {
         int index = getIndex(id);
         if (index == -1){
             return null;
@@ -37,7 +37,7 @@ public class ProfileRepository {
     }
 
 
-    public synchronized void deleteById (int id) {
+    public synchronized void delete (int id) {
         int index = getIndex(id);
         if (index == -1) {
             return;
