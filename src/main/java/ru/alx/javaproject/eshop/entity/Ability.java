@@ -1,4 +1,4 @@
-package ru.alx.javaproject.eshop.model;
+package ru.alx.javaproject.eshop.entity;
 
 import java.util.Objects;
 

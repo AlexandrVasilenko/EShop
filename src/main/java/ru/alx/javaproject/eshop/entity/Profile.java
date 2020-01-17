@@ -1,14 +1,21 @@
-package ru.alx.javaproject.eshop.model;
+package ru.alx.javaproject.eshop.entity;
 
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="profiles")
 public class Profile {
 
     private String playerName;
     private String nutritionType;
     private String gender;
 
+    @Id
+    @Column(name="playerid")
     private int playerId;
     private int playerAge;
     private int sleepingHours;
@@ -34,7 +41,7 @@ public class Profile {
 
     }
 
-    private Profile () {
+    public Profile () {
 
     }
 

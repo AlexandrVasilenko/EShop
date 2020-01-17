@@ -3,7 +3,7 @@ package ru.alx.javaproject.eshop.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ru.alx.javaproject.eshop.model.Ability;
+import ru.alx.javaproject.eshop.entity.Ability;
 
 import java.util.ArrayList;
 import java.util.List;

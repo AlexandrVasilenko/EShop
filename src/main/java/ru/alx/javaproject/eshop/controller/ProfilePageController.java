@@ -6,15 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.alx.javaproject.eshop.model.Profile;
+import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
+import ru.alx.javaproject.eshop.service.ProfileService;
+
+import java.sql.SQLException;
 
 
 @Controller
 public class ProfilePageController {
 
-    @Autowired
-    Profile profile;
 
     @Autowired
     private ProfileRepository profileRepository;
@@ -33,9 +34,10 @@ public class ProfilePageController {
     }
 
     @RequestMapping (value = "/Profile")
-    public ModelAndView defaultProfilePageLoader (){
+    public ModelAndView defaultProfilePageLoader () throws SQLException {
         ModelAndView modelAndView = new ModelAndView("Profile.html");
-        modelAndView.addObject("profile", profile);
+
+        modelAndView.addObject("profile", profileRepository.findOne(535));
         return modelAndView;
     }
 
