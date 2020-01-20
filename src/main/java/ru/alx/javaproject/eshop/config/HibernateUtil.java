@@ -6,6 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
+import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
 
 public class HibernateUtil {
@@ -29,6 +30,7 @@ public class HibernateUtil {
                 settings.put(Environment.HBM2DDL_AUTO, "create-drop");
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Profile.class);
+                configuration.addAnnotatedClass(Ability.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

@@ -4,27 +4,41 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.alx.javaproject.eshop.DAO.ProfileDAO;
 import ru.alx.javaproject.eshop.config.HibernateUtil;
 import ru.alx.javaproject.eshop.entity.Profile;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class ProfileRepository implements ProfileDAO {
+@Transactional
+public class ProfileRepository {
 
+   @PersistenceContext
+   private EntityManager em;
 
     private List<Profile> profileList = new ArrayList<>();
 
 
     public synchronized List<Profile> findAll () {
 
+        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
+        return profileList;
+
+/*
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         List<Profile> profileList =  session.createQuery("from Profile", Profile.class).getResultList();
         session.getTransaction().commit();
         return profileList;
+*/
 
         /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             return  session.createQuery("from profiles", Profile.class).list();
@@ -38,32 +52,25 @@ public class ProfileRepository implements ProfileDAO {
         return profiles;*/
     }
 
-    @Override
+
     public synchronized Profile findOne(int id) {
 
-        Profile profile = new Profile ();
+        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
         //profile = (Profile)sessionFactory.getCurrentSession().createQuery("select * from profiles where playerid = 535");
 
         return profile;
-
-        /*int index = getIndex(id);
-        if (index == -1){
-            return null;
-        }
-        return profileList.get(index);*/
     }
 
-    @Override
+
     public synchronized Profile save (Profile profile)    {
         int index = getIndex(profile.getPlayerId());
-
         if (index == -1){
             return add(profile);
         }
         return update(profile,index);
     }
 
-    @Override
+
     public synchronized void delete (int id) {
         int index = getIndex(id);
         if (index == -1) {

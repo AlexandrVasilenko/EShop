@@ -1,19 +1,27 @@
 package ru.alx.javaproject.eshop.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table (name="abilities")
 public class Ability {
 
+    @Id
     private Long id;
     private String picture;
     private String name;
+    private String level;
     private String description;
     private int price;
 
-    public Ability (Long id, String picture, String name, String description, int price){
+    public Ability (Long id, String picture, String name, String level, String description, int price){
     this.id = id;
     this.picture = picture;
     this.name = name;
+    this.level = level;
     this.description = description;
     this.price = price;
 
@@ -21,6 +29,14 @@ public class Ability {
 
     private Ability (){
 
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public Long getId() {

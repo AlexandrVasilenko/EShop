@@ -33,10 +33,12 @@ public class ProfilePageController {
         return modelAndView;
     }
 
+
     @RequestMapping (value = "/Profile")
     public ModelAndView defaultProfilePageLoader () throws SQLException {
         ModelAndView modelAndView = new ModelAndView("Profile.html");
 
+        // TODO get default profile from session
         modelAndView.addObject("profile", profileRepository.findOne(535));
         return modelAndView;
     }
