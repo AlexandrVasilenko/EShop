@@ -54,10 +54,7 @@ public class ProfileRepository {
 
 
     public synchronized Profile findOne(int id) {
-
         Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        //profile = (Profile)sessionFactory.getCurrentSession().createQuery("select * from profiles where playerid = 535");
-
         return profile;
     }
 
@@ -70,13 +67,15 @@ public class ProfileRepository {
         return update(profile,index);
     }
 
-
     public synchronized void delete (int id) {
         int index = getIndex(id);
         if (index == -1) {
             return;
         }
-        profileList.remove(index);
+        //em.createQuery("delete from Profile x where x.playerId = " + id);
+        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
+        em.remove(profile);
+
     }
 
     public synchronized void deleteAll(){
@@ -89,6 +88,7 @@ public class ProfileRepository {
 
 
     private int getIndex(int id) {
+        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
         for (int i = 0; i < profileList.size(); i++){
             Profile profile = profileList.get(i);
             if (profile.getPlayerId() == id){
@@ -100,13 +100,17 @@ public class ProfileRepository {
 
     private Profile update(Profile profile, int index){
         Profile newProfile = clone(profile);
-        profileList.set(index,newProfile);
+        delete(profile.getPlayerId());
+        em.persist(newProfile);
+        /*List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
+        profileList.set(index,newProfile);*/
         return clone(newProfile);
     }
 
     private Profile add (Profile profile){
         Profile newProfile = clone(profile);
-        profileList.add(newProfile);
+        //profileList.add(newProfile);
+        em.persist(newProfile);
         return clone(newProfile);
     }
 

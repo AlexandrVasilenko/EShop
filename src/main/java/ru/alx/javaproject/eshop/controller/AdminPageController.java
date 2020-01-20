@@ -29,10 +29,10 @@ public class AdminPageController {
         return modelAndView;
     }
 
-    /*@RequestMapping(value = "Admin", method = RequestMethod.POST)
+    @RequestMapping(value = "Admin", method = RequestMethod.POST)
     public ModelAndView adminPageDeleteAll(){
         ModelAndView modelAndView = new ModelAndView("redirect:Admin");
         profileRepository.deleteAll();
         return modelAndView;
-    }*/
+    }
 }

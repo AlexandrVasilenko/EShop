@@ -18,7 +18,11 @@ public class SurveyPageController {
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
     public ModelAndView getProfileInfo(@ModelAttribute ("profile") Profile profile){
+
+
         profileRepository.save(profile);
+
+
         return new ModelAndView("redirect:/Profile/" + profile.getPlayerId());
 
     }

@@ -41,7 +41,7 @@ public class Profile {
 
     }
 
-    public Profile () {
+    private Profile () {
 
     }
 
