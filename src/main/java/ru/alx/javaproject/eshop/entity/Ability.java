@@ -1,6 +1,8 @@
 package ru.alx.javaproject.eshop.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
@@ -10,12 +12,14 @@ import java.util.Objects;
 public class Ability {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String picture;
     private String name;
     private String level;
     private String description;
     private int price;
+    private boolean obtained;
 
     public Ability (Long id, String picture, String name, String level, String description, int price){
     this.id = id;
@@ -24,11 +28,20 @@ public class Ability {
     this.level = level;
     this.description = description;
     this.price = price;
+    this.obtained = false;
 
     }
 
-    private Ability (){
+    public Ability (){
 
+    }
+
+    public boolean isObtained() {
+        return obtained;
+    }
+
+    public void setObtained(boolean obtained) {
+        this.obtained = obtained;
     }
 
     public String getLevel() {

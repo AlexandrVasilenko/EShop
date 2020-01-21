@@ -4,8 +4,8 @@
                 <head>
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
-                        <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+                        <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css" th:href="${'./css/bootstrap.min.css'}"/>
+                        <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="${'./css/style.css'}"/>
                         <link rel="icon" href="../static/images/favicon.png" th:href="${'./images/favicon.png'}">
                         <title>Mystery EShop</title>
                     </head>
@@ -26,11 +26,20 @@
                             </div>
                     </div>
 
-                    <div class="container">
-                        <h2 th:text="${playerName}">Nameless</h2>
-                    </div>
+                    
 
 <div class="container">
+  
+  <div>
+    <h3 th:text="'Player name: ' + ${profile.playerName}">Player name: Nameless</h3>
+</div>
+  <div>
+    <h3>Your time credit: <span style="font-size:30px" th:text="${profile.timeReserve} + ' hours'">111 hours</span>
+      <span style="float:right">
+        <input class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy all"/>
+      </span></h3>
+  </div>
+  
         <table class="table table-hover table-primary">
                 <thead>
                   <tr>
@@ -44,22 +53,33 @@
                   </tr>
                 </thead>
                 <tbody>
-                     <tr th:each="ability, counter : ${abilities}">
-                        <td  th:text="${counter.index + 1}">1</td> 
+                     <tr th:each="ability : ${abilities}">
+                        <td th:text="${ability.id}">1</td> 
                         <td th:text="${ability.Picture}">picture.jpg</td>
                         <td th:text="${ability.Name}">Ability name</td>
                         <td th:text="${ability.Level}">Ability name</td>
                         <td th:text="${ability.Description}">Description of an ability</td>
                         <td th:text="${ability.Price}">12h</td>
-                        
+                        <td><input name="obtained" type="checkbox"/></td>
                     </tr>
-                   
+                    <form th:object="${resultDTO}" method="post">
+                    <tr th:each="ability, itemStat : *{abilityList}">
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].id}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Picture}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Name}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Level}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Description}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p></td>
+                      <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].obtained}"></input></td>
+
+                  </tr>
+                    </form>
                   
                   
                   
                 </tbody>
               </table>
-    
+            
 </div>
 
 
