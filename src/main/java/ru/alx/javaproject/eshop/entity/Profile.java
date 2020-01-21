@@ -1,6 +1,9 @@
 package ru.alx.javaproject.eshop.entity;
 
 
+import org.apache.tomcat.jni.Time;
+import ru.alx.javaproject.eshop.service.TimeReserveValidationService;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,6 +23,7 @@ public class Profile {
     private int playerAge;
     private int sleepingHours;
     private int sportActivity;
+    private int timeReserve;
 
     private boolean smoking;
     private boolean alcohol;
@@ -39,10 +43,21 @@ public class Profile {
         this.smoking = smoking != null && smoking;
         this.inLove = inLove != null && inLove;
 
+        TimeReserveValidationService trvs = new TimeReserveValidationService();
+        this.timeReserve = trvs.calculateTimeReserve(gender, nutritionType, playerAge, sleepingHours, sportActivity, this.smoking, this.alcohol, this.inLove);
+        //this.timeReserve = 100;
     }
 
     private Profile () {
 
+    }
+
+    public int getTimeReserve() {
+        return timeReserve;
+    }
+
+    public void setTimeReserve(int timeReserve) {
+        this.timeReserve = timeReserve;
     }
 
     public int getPlayerId() {

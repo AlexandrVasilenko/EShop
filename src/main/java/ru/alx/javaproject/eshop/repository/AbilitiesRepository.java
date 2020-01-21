@@ -17,9 +17,7 @@ public class AbilitiesRepository {
 
 
     public synchronized List<Ability> findAll (){
-
         List<Ability> listOfAbilities = em.createQuery("from Ability", Ability.class).getResultList();
-
         return listOfAbilities;
     }
 
