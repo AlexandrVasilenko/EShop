@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class ProfileRepository {
+public class ResultRepository {
 
    @PersistenceContext
    private EntityManager em;
