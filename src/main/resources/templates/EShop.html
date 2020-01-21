@@ -29,7 +29,7 @@
                     
 
 <div class="container">
-  
+  <form th:object="${resultDTO}" method="post">
   <div>
     <h3 th:text="'Player name: ' + ${profile.playerName}">Player name: Nameless</h3>
 </div>
@@ -53,7 +53,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                     <tr th:each="ability : ${abilities}">
+                     <!-- <tr th:each="ability : ${abilities}">
                         <td th:text="${ability.id}">1</td> 
                         <td th:text="${ability.Picture}">picture.jpg</td>
                         <td th:text="${ability.Name}">Ability name</td>
@@ -61,15 +61,27 @@
                         <td th:text="${ability.Description}">Description of an ability</td>
                         <td th:text="${ability.Price}">12h</td>
                         <td><input name="obtained" type="checkbox"/></td>
-                    </tr>
-                    <form th:object="${resultDTO}" method="post">
+                    </tr> -->
+                    
                     <tr th:each="ability, itemStat : *{abilityList}">
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].id}"></p></td>
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].Picture}"></p></td>
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].Name}"></p></td>
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].Level}"></p></td>
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].Description}"></p></td>
-                      <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p></td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].id}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].id}"></input>
+                      </td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Picture}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Picture}"></input>
+                      </td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Name}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Name}"></input>
+                      </td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Level}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Level}"></input>
+                      </td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Description}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Description}"></input>
+                      </td>
+                      <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p>
+                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Price}"></input>
+                      </td>
                       <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].obtained}"></input></td>
 
                   </tr>
@@ -77,7 +89,7 @@
                   
                   
                   
-                </tbody>
+                 </tbody>
               </table>
             
 </div>
