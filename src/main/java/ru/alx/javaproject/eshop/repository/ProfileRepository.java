@@ -62,9 +62,9 @@ public class ProfileRepository {
             return;
         }
         //em.createQuery("delete from Profile x where x.playerId = " + id);
-        Profile profile2 = em.find(Profile.class, id);
-//        profile2.getPlayerAge();
-        em.remove(profile2);
+        //Profile profile2 = em.find(Profile.class, id);
+        //profile2.getPlayerAge();
+        //em.remove(profile2);
         Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
         em.remove(profile);
 
