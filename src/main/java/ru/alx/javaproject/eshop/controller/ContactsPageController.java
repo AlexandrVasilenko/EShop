@@ -8,13 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class ContactsPageController {
 
     @RequestMapping("/Contacts")
-    public ModelAndView contactPageLoader (){
+    public ModelAndView contactPageLoader() {
         ModelAndView modelAndView = new ModelAndView("/contacts.html");
 
         modelAndView.addObject("pageOwner", "Alex Vasilenko");
         modelAndView.addObject("mobile", "+420 123 456 789");
         modelAndView.addObject("email", "aleksander.vasilenko@gmail.com");
-
 
         return modelAndView;
     }

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="profiles")
+@Table(name = "profiles")
 public class Profile {
 
     private String playerName;
@@ -18,7 +18,7 @@ public class Profile {
     private String gender;
 
     @Id
-    @Column(name="playerid")
+    @Column(name = "playerid")
     private int playerId;
     private int playerAge;
     private int sleepingHours;
@@ -28,7 +28,6 @@ public class Profile {
     private boolean smoking;
     private boolean alcohol;
     private boolean inLove;
-
 
 
     public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, Boolean smoking, Boolean alcohol, Boolean inLove, String gender) {
@@ -45,10 +44,9 @@ public class Profile {
 
         TimeReserveValidationService trvs = new TimeReserveValidationService();
         this.timeReserve = trvs.calculateTimeReserve(gender, nutritionType, playerAge, sleepingHours, sportActivity, this.smoking, this.alcohol, this.inLove);
-        //this.timeReserve = 100;
     }
 
-    private Profile () {
+    private Profile() {
 
     }
 

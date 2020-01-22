@@ -13,10 +13,10 @@ import java.util.List;
 public class AbilitiesRepository {
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
 
 
-    public synchronized List<Ability> findAll (){
+    public synchronized List<Ability> findAll() {
         List<Ability> listOfAbilities = em.createQuery("from Ability", Ability.class).getResultList();
         return listOfAbilities;
     }

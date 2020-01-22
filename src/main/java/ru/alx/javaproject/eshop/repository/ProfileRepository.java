@@ -6,39 +6,19 @@ import ru.alx.javaproject.eshop.entity.Profile;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 @Transactional
 public class ProfileRepository {
 
-   @PersistenceContext
-   private EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
-    public synchronized List<Profile> findAll () {
+    public synchronized List<Profile> findAll() {
 
         List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
         return profileList;
-
-/*
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<Profile> profileList =  session.createQuery("from Profile", Profile.class).getResultList();
-        session.getTransaction().commit();
-        return profileList;
-*/
-
-        /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return  session.createQuery("from profiles", Profile.class).list();
-        }*/
-
-
-        /*List<Profile> profiles = new ArrayList<>(profileList.size());
-        for (Profile oneProfile: profileList) {
-            profiles.add(oneProfile);
-        }
-        return profiles;*/
     }
 
 
@@ -48,66 +28,57 @@ public class ProfileRepository {
     }
 
 
-    public synchronized Profile save (Profile profile)    {
+    public synchronized Profile save(Profile profile) {
         int index = getIndex(profile.getPlayerId());
-        if (index == -1){
+        if (index == -1) {
             return add(profile);
         }
-        return update(profile,index);
+        return update(profile, index);
     }
 
-    public synchronized void delete (int id) {
+    public synchronized void delete(int id) {
         int index = getIndex(id);
         if (index == -1) {
             return;
         }
-        //em.createQuery("delete from Profile x where x.playerId = " + id);
-        //Profile profile2 = em.find(Profile.class, id);
-        //profile2.getPlayerAge();
-        //em.remove(profile2);
         Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
         em.remove(profile);
-
     }
 
-    public synchronized void deleteAll(){
-        for (Profile profile: findAll()) {
+    public synchronized void deleteAll() {
+        for (Profile profile : findAll()) {
             delete(profile.getPlayerId());
         }
     }
 
 
-
-
     private int getIndex(int id) {
         List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        for (int i = 0; i < profileList.size(); i++){
+        for (int i = 0; i < profileList.size(); i++) {
             Profile profile = profileList.get(i);
-            if (profile.getPlayerId() == id){
+            if (profile.getPlayerId() == id) {
                 return i;
             }
         }
         return -1;
     }
 
-    private Profile update(Profile profile, int index){
+    private Profile update(Profile profile, int index) {
         Profile newProfile = clone(profile);
         delete(profile.getPlayerId());
         em.persist(newProfile);
-        /*List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        profileList.set(index,newProfile);*/
         return clone(newProfile);
     }
 
-    private Profile add (Profile profile){
+    private Profile add(Profile profile) {
         Profile newProfile = clone(profile);
         //profileList.add(newProfile);
         em.persist(newProfile);
         return clone(newProfile);
     }
 
-    private Profile clone (Profile profile){
-        return new Profile (profile.getPlayerName(),profile.getNutritionType(),profile.getSportActivity(),profile.getPlayerAge(),profile.getSleepingHours(),profile.isSmoking(),profile.isAlcohol(),profile.isInLove(),
+    private Profile clone(Profile profile) {
+        return new Profile(profile.getPlayerName(), profile.getNutritionType(), profile.getSportActivity(), profile.getPlayerAge(), profile.getSleepingHours(), profile.isSmoking(), profile.isAlcohol(), profile.isInLove(),
                 profile.getGender());
     }
 }

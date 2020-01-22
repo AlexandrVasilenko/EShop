@@ -9,7 +9,7 @@ public class AbilityResultDTO {
 
     private List<Ability> abilityList = new ArrayList<>();
 
-    public void addAbility (Ability ability){
+    public void addAbility(Ability ability) {
         this.abilityList.add(ability);
     }
 

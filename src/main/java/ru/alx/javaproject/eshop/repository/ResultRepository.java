@@ -19,12 +19,10 @@ import java.util.StringTokenizer;
 @Transactional
 public class ResultRepository {
 
-   @PersistenceContext
-   private EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
-
-    public synchronized List<Result> findAll () {
-
+    public synchronized List<Result> findAll() {
         List<Result> resultList = em.createQuery("from Result", Result.class).getResultList();
         return resultList;
     }
@@ -37,75 +35,73 @@ public class ResultRepository {
     }
 
 
-    public synchronized void save (int playerId, List<Ability> abilityList)    {
+    public synchronized void save(int playerId, List<Ability> abilityList) {
         int index = getIndex(playerId);
-        if (index == -1){
-            add(wrapToDB(abilityList,playerId));
+        if (index == -1) {
+            add(wrapToDB(abilityList, playerId));
         }
-        update(wrapToDB(abilityList,playerId));
+        update(wrapToDB(abilityList, playerId));
     }
 
-    public synchronized void delete (int id) {
+    public synchronized void delete(int id) {
         int index = getIndex(id);
         if (index == -1) {
             return;
         }
-        Result result = em.find(Result.class,id);
+        Result result = em.find(Result.class, id);
         em.remove(result);
     }
 
     private int getIndex(int id) {
         List<Result> resultList = em.createQuery("from Result", Result.class).getResultList();
-        for (int i = 0; i < resultList.size(); i++){
+        for (int i = 0; i < resultList.size(); i++) {
             Result result = resultList.get(i);
-            if (result.getPlayerId() == id){
+            if (result.getPlayerId() == id) {
                 return i;
             }
         }
         return -1;
     }
 
-    private void update(Result result){
+    private void update(Result result) {
         Result newResult = clone(result);
         delete(result.getPlayerId());
         em.persist(newResult);
     }
 
-    private Result add (Result result){
+    private Result add(Result result) {
         Result newResult = clone(result);
         em.persist(newResult);
         return clone(newResult);
     }
 
-    private Result clone (Result result){
+    private Result clone(Result result) {
         return new Result(result.getPlayerId(), result.getAbilityListString());
     }
 
-    private Result wrapToDB (List<Ability> abilityList, int playerId){
-        Result result = new Result(playerId,"");
+    private Result wrapToDB(List<Ability> abilityList, int playerId) {
+        Result result = new Result(playerId, "");
 
-        for (Ability ability: abilityList) {
-            if (ability.isObtained()){
+        for (Ability ability : abilityList) {
+            if (ability.isObtained()) {
                 result.setAbilityListString(result.getAbilityListString().concat(ability.getId().toString() + ","));
             }
         }
-        //result.setAbilityListString(abilityList.stream().filter(c -> c.isObtained()).toString() + ",");
         return result;
     }
 
-    private Map<Integer, List<Ability>> unwrapFromDB (Result result){
+    private Map<Integer, List<Ability>> unwrapFromDB(Result result) {
         Map<Integer, List<Ability>> outputMap = new HashMap<>();
 
         List<Ability> abilityList = new ArrayList<>();
 
-        //profile = em.createQuery("select x from Profile x where x.playerId = " + result.getPlayerId(), Profile.class).getSingleResult();
-        int playerId = em.find(Profile.class,result.getPlayerId()).getPlayerId();
+        int playerId = em.find(Profile.class, result.getPlayerId()).getPlayerId();
 
         StringTokenizer st = new StringTokenizer(result.getAbilityListString(), ",");
-        while (st.hasMoreTokens()){
+        while (st.hasMoreTokens()) {
             abilityList.add(em.find(Ability.class, Long.parseLong(st.nextToken())));
         }
-        outputMap.put(playerId,abilityList);
+        outputMap.put(playerId, abilityList);
         return outputMap;
 
     }

@@ -7,21 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="results")
+@Table(name = "results")
 public class Result {
 
     @Id
-    int playerId;
+    private int playerId;
 
-    @Column (name="abilitylist")
-    String abilityListString;
+    @Column(name = "abilitylist")
+    private String abilityListString;
 
     public Result(int playerId, String abilityListString) {
         this.playerId = playerId;
         this.abilityListString = abilityListString;
     }
 
-    public Result(){}
+    public Result() {
+    }
 
     public int getPlayerId() {
         return playerId;

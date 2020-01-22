@@ -27,7 +27,7 @@ public class SurveyPageController {
     MessageContext context;
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
-    public ModelAndView getProfileInfo(@ModelAttribute ("profile") Profile profile){
+    public ModelAndView sendSurveyInfo(@ModelAttribute ("profile") Profile profile){
         profileRepository.save(profile);
         httpSession.setAttribute("currentPlayerId", profile.getPlayerId());
         return new ModelAndView("redirect:/Profile/" + profile.getPlayerId());
@@ -35,7 +35,7 @@ public class SurveyPageController {
     }
 
     @RequestMapping(value = "/Survey", method = RequestMethod.GET)
-    public ModelAndView showLoginPage(){
+    public ModelAndView showSurveyPage(){
         return new ModelAndView("Survey");
     }
 }

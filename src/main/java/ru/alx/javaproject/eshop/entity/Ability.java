@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table (name="abilities")
+@Table(name = "abilities")
 public class Ability {
 
     @Id
@@ -21,18 +21,18 @@ public class Ability {
     private int price;
     private boolean obtained;
 
-    public Ability (Long id, String picture, String name, String level, String description, int price){
-    this.id = id;
-    this.picture = picture;
-    this.name = name;
-    this.level = level;
-    this.description = description;
-    this.price = price;
-    this.obtained = false;
+    public Ability(Long id, String picture, String name, String level, String description, int price) {
+        this.id = id;
+        this.picture = picture;
+        this.name = name;
+        this.level = level;
+        this.description = description;
+        this.price = price;
+        this.obtained = false;
 
     }
 
-    public Ability (){
+    public Ability() {
 
     }
 

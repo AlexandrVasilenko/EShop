@@ -9,20 +9,18 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.entity.Result;
 import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 import ru.alx.javaproject.eshop.repository.ResultRepository;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class EShopPageController {
 
     @Autowired
-    ResultRepository resultRepository;
+    private ResultRepository resultRepository;
 
     @Autowired
     private ProfileRepository profileRepository;
@@ -33,33 +31,25 @@ public class EShopPageController {
     @Autowired
     private HttpSession httpSession;
 
-    @RequestMapping(name ="/EShop", method = RequestMethod.GET)
-    public ModelAndView abilityPageLoader() {
-        ModelAndView modelAndView = new ModelAndView("EShop.html");
+    @RequestMapping(name = "/EShop", method = RequestMethod.GET)
+    public ModelAndView eshopPageLoader() {
+        ModelAndView modelAndView = new ModelAndView("EShop");
 
         List<Ability> listOfAbilities = abilitiesRepository.findAll();
         AbilityResultDTO list = new AbilityResultDTO();
         list.setAbilityList(abilitiesRepository.findAll());
+        Profile profile = profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId"));
 
-        Profile profile = profileRepository.findOne((int)httpSession.getAttribute("currentProfileId"));
-
-        modelAndView.addObject("abilities",listOfAbilities);
+        modelAndView.addObject("abilities", listOfAbilities);
         modelAndView.addObject("profile", profile);
         modelAndView.addObject("resultDTO", list);
         return modelAndView;
     }
 
     @RequestMapping(name = "/Eshop", method = RequestMethod.POST)
-    public ModelAndView abilityListSubmit (@ModelAttribute AbilityResultDTO resultDTO){
-        /*List<Ability> listOfAbility = new ArrayList<>();
-        for (Ability ability:resultDTO.getAbilityList()) {
-            listOfAbility.add(ability);
-        }*/
-
-        resultRepository.save((int)httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
-
+    public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDTO resultDTO) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
-
+        resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
         return modelAndView;
     }
 }

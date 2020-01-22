@@ -15,22 +15,22 @@ public class AdminPageController {
     @Autowired
     private ProfileRepository profileRepository;
 
-    @RequestMapping(value = "/Admin", method = RequestMethod.GET)
-    public ModelAndView adminPageLoader (){
+    @RequestMapping(value = "Admin", method = RequestMethod.GET)
+    public ModelAndView adminPageLoader() {
         ModelAndView modelAndView = new ModelAndView("/Admin.html");
         modelAndView.addObject("profiles", profileRepository.findAll());
         return modelAndView;
     }
 
     @RequestMapping(value = "Admin/{playerId}", method = {RequestMethod.POST, RequestMethod.DELETE})
-    public ModelAndView adminPageDeleteProfile(@PathVariable ("playerId") int id){
+    public ModelAndView adminPageDeleteProfile(@PathVariable("playerId") int id) {
         ModelAndView modelAndView = new ModelAndView("redirect:../Admin");
         profileRepository.delete(id);
         return modelAndView;
     }
 
     @RequestMapping(value = "Admin", method = RequestMethod.POST)
-    public ModelAndView adminPageDeleteAll(){
+    public ModelAndView adminPageDeleteAll() {
         ModelAndView modelAndView = new ModelAndView("redirect:Admin");
         profileRepository.deleteAll();
         return modelAndView;

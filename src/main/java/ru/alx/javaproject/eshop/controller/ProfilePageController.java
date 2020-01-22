@@ -16,7 +16,6 @@ import java.sql.SQLException;
 @Controller
 public class ProfilePageController {
 
-
     @Autowired
     private ProfileRepository profileRepository;
 
@@ -26,26 +25,20 @@ public class ProfilePageController {
 
     @RequestMapping(value = "/Profile/{profileId}", method = RequestMethod.GET)
     public ModelAndView profilePageLoader(@PathVariable("profileId") int playerId) throws Exception {
-
+        ModelAndView modelAndView = new ModelAndView("Profile");
         Profile profile = profileRepository.findOne(playerId);
         if (profile == null) {
             throw new Exception("Profile is not found");
         }
-
-        ModelAndView modelAndView = new ModelAndView("Profile");
         modelAndView.addObject("profile", profile);
         return modelAndView;
     }
 
 
-    @RequestMapping (value = "/Profile")
-    public ModelAndView defaultProfilePageLoader () throws SQLException {
+    @RequestMapping(value = "/Profile")
+    public ModelAndView defaultProfilePageLoader() {
         ModelAndView modelAndView = new ModelAndView("Profile.html");
-
-        // TODO get default profile from session
-
-
-        modelAndView.addObject("profile", profileRepository.findOne((int)httpSession.getAttribute("currentPlayerId")));
+        modelAndView.addObject("profile", profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId")));
         return modelAndView;
     }
 

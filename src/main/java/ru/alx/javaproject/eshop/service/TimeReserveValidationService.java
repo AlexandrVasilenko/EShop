@@ -8,7 +8,7 @@ import java.sql.SQLException;
 @Service
 public class TimeReserveValidationService {
 
-    public int calculateTimeReserve (String gender, String nutritionType, int playerAge, int sleepingHours, int sportActivity, boolean smoking, boolean alcohol, boolean inLove){
+    public int calculateTimeReserve(String gender, String nutritionType, int playerAge, int sleepingHours, int sportActivity, boolean smoking, boolean alcohol, boolean inLove) {
 
         //TODO design time calculaton logic
 
