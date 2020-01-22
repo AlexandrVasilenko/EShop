@@ -2,12 +2,18 @@ package ru.alx.javaproject.eshop.repository;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
+import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
+import ru.alx.javaproject.eshop.entity.Result;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 @Repository
 @Transactional
@@ -16,47 +22,27 @@ public class ResultRepository {
    @PersistenceContext
    private EntityManager em;
 
-    private List<Profile> profileList = new ArrayList<>();
 
+    public synchronized List<Result> findAll () {
 
-    public synchronized List<Profile> findAll () {
+        List<Result> resultList = em.createQuery("from Result", Result.class).getResultList();
+        return resultList;
+    }
 
-        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        return profileList;
-
-/*
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<Profile> profileList =  session.createQuery("from Profile", Profile.class).getResultList();
-        session.getTransaction().commit();
-        return profileList;
-*/
-
-        /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return  session.createQuery("from profiles", Profile.class).list();
-        }*/
-
-
-        /*List<Profile> profiles = new ArrayList<>(profileList.size());
-        for (Profile oneProfile: profileList) {
-            profiles.add(oneProfile);
-        }
-        return profiles;*/
+    public synchronized AbilityResultDTO findOne(int id) {
+        Result result = em.find(Result.class, id);
+        AbilityResultDTO list = new AbilityResultDTO();
+        list.setAbilityList(unwrapFromDB(result).get(id));
+        return list;
     }
 
 
-    public synchronized Profile findOne(int id) {
-        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        return profile;
-    }
-
-
-    public synchronized Profile save (Profile profile)    {
-        int index = getIndex(profile.getPlayerId());
+    public synchronized void save (int playerId, List<Ability> abilityList)    {
+        int index = getIndex(playerId);
         if (index == -1){
-            return add(profile);
+            add(wrapToDB(abilityList,playerId));
         }
-        return update(profile,index);
+        update(wrapToDB(abilityList,playerId));
     }
 
     public synchronized void delete (int id) {
@@ -64,50 +50,63 @@ public class ResultRepository {
         if (index == -1) {
             return;
         }
-        //em.createQuery("delete from Profile x where x.playerId = " + id);
-        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        em.remove(profile);
-
+        Result result = em.find(Result.class,id);
+        em.remove(result);
     }
-
-    public synchronized void deleteAll(){
-        for (Profile profile: findAll()) {
-            delete(profile.getPlayerId());
-        }
-    }
-
-
-
 
     private int getIndex(int id) {
-        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        for (int i = 0; i < profileList.size(); i++){
-            Profile profile = profileList.get(i);
-            if (profile.getPlayerId() == id){
+        List<Result> resultList = em.createQuery("from Result", Result.class).getResultList();
+        for (int i = 0; i < resultList.size(); i++){
+            Result result = resultList.get(i);
+            if (result.getPlayerId() == id){
                 return i;
             }
         }
         return -1;
     }
 
-    private Profile update(Profile profile, int index){
-        Profile newProfile = clone(profile);
-        delete(profile.getPlayerId());
-        em.persist(newProfile);
-        /*List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        profileList.set(index,newProfile);*/
-        return clone(newProfile);
+    private void update(Result result){
+        Result newResult = clone(result);
+        delete(result.getPlayerId());
+        em.persist(newResult);
     }
 
-    private Profile add (Profile profile){
-        Profile newProfile = clone(profile);
-        //profileList.add(newProfile);
-        em.persist(newProfile);
-        return clone(newProfile);
+    private Result add (Result result){
+        Result newResult = clone(result);
+        em.persist(newResult);
+        return clone(newResult);
     }
 
-    private Profile clone (Profile profile){
-        return new Profile (profile.getPlayerName(),profile.getNutritionType(),profile.getSportActivity(),profile.getPlayerAge(),profile.getSleepingHours(),profile.isSmoking(),profile.isAlcohol(),profile.isInLove(),
-                profile.getGender());
+    private Result clone (Result result){
+        return new Result(result.getPlayerId(), result.getAbilityListString());
+    }
+
+    private Result wrapToDB (List<Ability> abilityList, int playerId){
+        Result result = new Result(playerId,"");
+
+        for (Ability ability: abilityList) {
+            if (ability.isObtained()){
+                result.setAbilityListString(result.getAbilityListString().concat(ability.getId().toString() + ","));
+            }
+        }
+        //result.setAbilityListString(abilityList.stream().filter(c -> c.isObtained()).toString() + ",");
+        return result;
+    }
+
+    private Map<Integer, List<Ability>> unwrapFromDB (Result result){
+        Map<Integer, List<Ability>> outputMap = new HashMap<>();
+
+        List<Ability> abilityList = new ArrayList<>();
+
+        //profile = em.createQuery("select x from Profile x where x.playerId = " + result.getPlayerId(), Profile.class).getSingleResult();
+        int playerId = em.find(Profile.class,result.getPlayerId()).getPlayerId();
+
+        StringTokenizer st = new StringTokenizer(result.getAbilityListString(), ",");
+        while (st.hasMoreTokens()){
+            abilityList.add(em.find(Ability.class, Long.parseLong(st.nextToken())));
+        }
+        outputMap.put(playerId,abilityList);
+        return outputMap;
+
     }
 }

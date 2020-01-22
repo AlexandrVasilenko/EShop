@@ -45,7 +45,7 @@ public class ProfilePageController {
         // TODO get default profile from session
 
 
-        modelAndView.addObject("profile", profileRepository.findOne((int)httpSession.getAttribute("currentProfileId")));
+        modelAndView.addObject("profile", profileRepository.findOne((int)httpSession.getAttribute("currentPlayerId")));
         return modelAndView;
     }
 

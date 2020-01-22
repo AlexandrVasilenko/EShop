@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
 import ru.alx.javaproject.eshop.entity.Profile;
+import ru.alx.javaproject.eshop.entity.Result;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 import ru.alx.javaproject.eshop.repository.ResultRepository;
 
@@ -28,32 +30,18 @@ public class ResultPageController {
 
 
     @RequestMapping(value = "/Result", method = RequestMethod.GET)
-    public ModelAndView profilePageLoader() throws Exception {
+    public ModelAndView resultPageLoader() throws Exception {
 
+        //Result result = resultRepository.findOne((int)httpSession.getAttribute("currentPlayerId"));
+        //AbilityResultDTO abilityList = new AbilityResultDTO();
+        //abilityList.setAbilityList(resultRepository.findOne((int)httpSession.getAttribute("currentPlayerId")).getAbilityList());
 
-        Profile profile = profileRepository.findOne((int)httpSession.getAttribute("currentPlayerId"));
-        resultRepository.findOne((int)httpSession.getAttribute("currentPlayerId"));
-
-        if (profile == null) {
-            throw new Exception("Profile is not found");
-        }
-
-        ModelAndView modelAndView = new ModelAndView("Profile");
-        modelAndView.addObject("profile", profile);
+        ModelAndView modelAndView = new ModelAndView("Result");
+        modelAndView.addObject("abilities", resultRepository.findOne((int)httpSession.getAttribute("currentPlayerId")).getAbilityList());
         return modelAndView;
     }
 
 
-    @RequestMapping (value = "/Profile")
-    public ModelAndView defaultProfilePageLoader () throws SQLException {
-        ModelAndView modelAndView = new ModelAndView("Profile.html");
-
-        // TODO get default profile from session
-
-
-        modelAndView.addObject("profile", profileRepository.findOne((int)httpSession.getAttribute("currentProfileId")));
-        return modelAndView;
-    }
 
 }
 

@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
 @Table (name="results")
@@ -17,6 +16,26 @@ public class Result {
     @Column (name="abilitylist")
     String abilityListString;
 
+    public Result(int playerId, String abilityListString) {
+        this.playerId = playerId;
+        this.abilityListString = abilityListString;
+    }
 
+    public Result(){}
 
+    public int getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(int playerId) {
+        this.playerId = playerId;
+    }
+
+    public String getAbilityListString() {
+        return abilityListString;
+    }
+
+    public void setAbilityListString(String abilityListString) {
+        this.abilityListString = abilityListString;
+    }
 }

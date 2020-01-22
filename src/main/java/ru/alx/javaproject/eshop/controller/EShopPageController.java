@@ -12,6 +12,7 @@ import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.entity.Result;
 import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
+import ru.alx.javaproject.eshop.repository.ResultRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -19,6 +20,9 @@ import java.util.List;
 
 @Controller
 public class EShopPageController {
+
+    @Autowired
+    ResultRepository resultRepository;
 
     @Autowired
     private ProfileRepository profileRepository;
@@ -47,11 +51,14 @@ public class EShopPageController {
 
     @RequestMapping(name = "/Eshop", method = RequestMethod.POST)
     public ModelAndView abilityListSubmit (@ModelAttribute AbilityResultDTO resultDTO){
-        List<Ability> listOfAbility = new ArrayList<>();
+        /*List<Ability> listOfAbility = new ArrayList<>();
         for (Ability ability:resultDTO.getAbilityList()) {
             listOfAbility.add(ability);
-        }
-        ModelAndView modelAndView = new ModelAndView("redirect:/Profile");
+        }*/
+
+        resultRepository.save((int)httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+
+        ModelAndView modelAndView = new ModelAndView("redirect:/Result");
 
         return modelAndView;
     }
