@@ -6,7 +6,7 @@
 
     <groupId>ru.alx.javaproject</groupId>
     <artifactId>EShop</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.5.0</version>
     <packaging>war</packaging>
 
     <name>EShop</name>
