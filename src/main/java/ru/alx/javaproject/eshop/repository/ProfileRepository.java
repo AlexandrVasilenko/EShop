@@ -23,8 +23,7 @@ public class ProfileRepository {
 
 
     public synchronized Profile findOne(int id) {
-        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        return profile;
+        return em.find(Profile.class,id);
     }
 
 
