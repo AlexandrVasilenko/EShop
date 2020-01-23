@@ -2,6 +2,9 @@ package ru.alx.javaproject.eshop.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -18,6 +21,9 @@ public class AppConfiguration {
 
     @Autowired
     private Environment env;
+
+    @Value("${server.context-path}")
+    private String contextPath;
 
     @Bean
     public DataSource dataSource(){
@@ -37,6 +43,12 @@ public class AppConfiguration {
         em.setPackagesToScan("ru.alx.javaproject.eshop");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         return em;
+    }
+
+    @Bean
+    public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
+    webServerFactoryCustomizer() {
+        return factory -> factory.setContextPath(contextPath);
     }
 
 }

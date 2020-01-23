@@ -1,6 +1,7 @@
 package ru.alx.javaproject.eshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +14,12 @@ import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 import ru.alx.javaproject.eshop.repository.ResultRepository;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+@RequestMapping("EShop")
 public class EShopPageController {
 
     @Autowired
@@ -31,8 +34,12 @@ public class EShopPageController {
     @Autowired
     private HttpSession httpSession;
 
-    @RequestMapping(name = "/EShop", method = RequestMethod.GET)
+    @Autowired
+    private HttpServletRequest httpServletRequest;
+
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView eshopPageLoader() {
+        System.out.println(httpServletRequest.getContextPath());
         ModelAndView modelAndView = new ModelAndView("EShop");
 
         List<Ability> listOfAbilities = abilitiesRepository.findAll();
@@ -46,7 +53,7 @@ public class EShopPageController {
         return modelAndView;
     }
 
-    @RequestMapping(name = "/Eshop", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDTO resultDTO) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
         resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());

@@ -14,6 +14,7 @@ public class Application extends SpringBootServletInitializer {
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
+        //System.setProperty("server.servlet.context-path", "/");
         SpringApplication.run(Application.class, args);
     }
 

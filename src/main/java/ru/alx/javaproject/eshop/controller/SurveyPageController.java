@@ -1,6 +1,5 @@
 package ru.alx.javaproject.eshop.controller;
 
-import com.oracle.webservices.internal.api.message.MessageContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,9 +21,6 @@ public class SurveyPageController {
 
     @Autowired
     private HttpSession httpSession;
-
-    @Context
-    MessageContext context;
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
     public ModelAndView sendSurveyInfo(@ModelAttribute ("profile") Profile profile){
