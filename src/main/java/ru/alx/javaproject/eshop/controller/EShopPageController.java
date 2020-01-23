@@ -45,7 +45,13 @@ public class EShopPageController {
         List<Ability> listOfAbilities = abilitiesRepository.findAll();
         AbilityResultDTO list = new AbilityResultDTO();
         list.setAbilityList(abilitiesRepository.findAll());
-        Profile profile = profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId"));
+        Profile profile;
+        if(httpSession.getAttribute("currentPlayerId") != null){
+            profile = profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId"));
+        } else {
+            profile = new Profile("No Profile found","",0 ,0 ,0 ,false,false,false,"");
+        }
+
 
         modelAndView.addObject("abilities", listOfAbilities);
         modelAndView.addObject("profile", profile);
