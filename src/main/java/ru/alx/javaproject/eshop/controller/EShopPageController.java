@@ -39,7 +39,6 @@ public class EShopPageController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView eshopPageLoader() {
-        System.out.println(httpServletRequest.getContextPath());
         ModelAndView modelAndView = new ModelAndView("EShop");
 
         List<Ability> listOfAbilities = abilitiesRepository.findAll();

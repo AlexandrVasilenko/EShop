@@ -8,12 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class AdminPageController {
 
     @Autowired
     private ProfileRepository profileRepository;
+
+    @Autowired
+    private HttpSession httpSession;
+
 
     @RequestMapping(value = "Admin", method = RequestMethod.GET)
     public ModelAndView adminPageLoader() {
@@ -26,6 +32,9 @@ public class AdminPageController {
     public ModelAndView adminPageDeleteProfile(@PathVariable("playerId") int id) {
         ModelAndView modelAndView = new ModelAndView("redirect:../Admin");
         profileRepository.delete(id);
+        if ((int)httpSession.getAttribute("currentPlayerId") == id) {
+            httpSession.setAttribute("currentPlayerId", null);
+        }
         return modelAndView;
     }
 
@@ -33,6 +42,7 @@ public class AdminPageController {
     public ModelAndView adminPageDeleteAll() {
         ModelAndView modelAndView = new ModelAndView("redirect:Admin");
         profileRepository.deleteAll();
+        httpSession.setAttribute("currentPlayerId", null);
         return modelAndView;
     }
 }

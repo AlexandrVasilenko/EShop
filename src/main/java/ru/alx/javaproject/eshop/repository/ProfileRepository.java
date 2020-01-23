@@ -3,6 +3,7 @@ package ru.alx.javaproject.eshop.repository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.alx.javaproject.eshop.entity.Profile;
+import ru.alx.javaproject.eshop.entity.Result;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -43,6 +44,10 @@ public class ProfileRepository {
         }
         Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
         em.remove(profile);
+        if (em.find(Result.class,id) != null){
+            em.remove(em.find(Result.class,id));
+        }
+
     }
 
     public synchronized void deleteAll() {
