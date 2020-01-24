@@ -31,12 +31,12 @@
 <div class="container">
   <form th:object="${resultDTO}" method="post">
   <div>
-    <h3 th:text="'Player name: ' + ${profile.playerName}">Player name: Nameless</h3>
+    <h3 th:text="'Player name: ' + ${profile.playerName}"> Player name: Nameless</h3><br>
 </div>
-  <div>
+  <div class="container w-100">
     <h3>Your time credit: <span style="font-size:30px" th:text="${profile.timeReserve} + ' hours'">111 hours</span>
       <span style="float:right">
-        <input class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy all"/>
+        <input class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy selected"/>
       </span></h3>
   </div>
   
