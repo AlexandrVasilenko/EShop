@@ -61,7 +61,11 @@ public class EShopPageController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDTO resultDTO) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
-        resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+        if(httpSession.getAttribute("currentPlayerId") == null){
+            modelAndView.setViewName("redirect:EShop");
+        } else {
+            resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+        }
         return modelAndView;
     }
 }
