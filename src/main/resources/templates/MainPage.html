@@ -10,7 +10,8 @@
                         <title>Mystery EShop</title>
                     </head>
                     
-                    <body>
+                    <body onload = validationAdminButton()>
+                        <input type="hidden" id="adminButtonValidator" name="validator" th:value="${isAdmin}"/>
                     
                     <div class="float-right">
                             <a href="./Contacts" ><img class="logo" src="../images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
@@ -22,7 +23,7 @@
                                  <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Survey'" value="Survey" />
                                  <input type="button" class="btn btn-primary btn-lg mr-5" onclick="location.href ='./Profile'" value="Your Profile" />
                                  <input type="button" class="btn btn-success btn-lg mr-5" onclick="location.href ='./EShop'" value="EShop" />
-                                 <input type="button" class="btn btn-danger btn-lg mr-5"  onclick="location.href ='./Admin'" value="Admin" />
+                                 <input type="button" class="btn btn-danger btn-lg mr-5" disabled onclick="location.href ='./Admin'" value="Admin" id="AdminButton" />
                             </div>
                     </div>
                     
@@ -38,7 +39,9 @@
 
 
 
-<script src="../static/js/bootstrap.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script th:src="${'./js/myscript.js'}" ></script>
+<script src="../static/js/myscript.js"></script>
 </body>
 
 

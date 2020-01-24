@@ -16,6 +16,8 @@ public class MainPageController {
         LocalDate today = LocalDate.now();
 
         modelAndView.addObject("todayDate", today);
+        modelAndView.addObject("isAdmin", "true");
+
         return modelAndView;
 
     }

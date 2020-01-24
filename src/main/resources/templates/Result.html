@@ -27,7 +27,8 @@
         </div>
 
 
-<div class="container">
+<div class="container w-25">
+  <h2>Your results:</h2>
   <table class="table table-hover table-primary">
     <thead>
       <tr>
@@ -35,9 +36,6 @@
         <th scope="col">Picture</th>
         <th scope="col">Name</th>
         <th scope="col">Level</th>
-        <th scope="col">Description</th>
-        <th scope="col">Price</th>
-        <th scope="col">Order</th>
       </tr>
     </thead>
     <tbody>
@@ -46,8 +44,6 @@
             <td th:text="${ability.Picture}">picture.jpg</td>
             <td th:text="${ability.Name}">Ability name</td>
             <td th:text="${ability.Level}">Ability name</td>
-            <td th:text="${ability.Description}">Description of an ability</td>
-            <td th:text="${ability.Price}">12h</td>
         </tr>
             </tbody>
           </table>
