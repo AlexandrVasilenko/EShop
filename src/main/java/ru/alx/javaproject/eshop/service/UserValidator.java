@@ -1,5 +1,6 @@
 package ru.alx.javaproject.eshop.service;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.alx.javaproject.eshop.entity.User;
 
@@ -17,9 +18,11 @@ public class UserValidator {
         User currentUser = new User (user.getLogin(),user.getPassword());
         String passwordFromDB = "";
         try {
-             passwordFromDB = em.createQuery("select x.password from User x where x.login=" + currentUser.getLogin(), User.class).getSingleResult().getPassword();
+             passwordFromDB = em.createQuery("select x from User x where x.login='" + currentUser.getLogin() + "'", User.class).getSingleResult().getPassword();
         } catch (Exception e){
-            throw new IllegalArgumentException("User is not found");
+            //throw new IllegalArgumentException("User is not found");
+            //throw new UsernameNotFoundException("Invalid username or password.");
+
         }
 
         if (!passwordFromDB.isEmpty() && currentUser.getPassword().equals(passwordFromDB)){
