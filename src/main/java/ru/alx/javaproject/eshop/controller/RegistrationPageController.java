@@ -9,41 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
+import ru.alx.javaproject.eshop.service.UserRegistrator;
 import ru.alx.javaproject.eshop.service.UserValidator;
 
+import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.core.Context;
-import java.time.LocalDate;
 
 @Controller
-public class LoginPageController {
+@RequestMapping(value = "Registration")
+public class RegistrationPageController {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoginPageController.class);
+    private static final Logger logger = LoggerFactory.getLogger(RegistrationPageController.class);
 
     @Autowired
-    UserValidator userValidator;
+    UserRegistrator userRegistrator;
 
-    @PersistenceContext
-    EntityManager em;
 
-    @RequestMapping("/")
-    public ModelAndView loginPageLoader (){
-        ModelAndView modelAndView = new ModelAndView("LoginPage");
-        return modelAndView;
-
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView registrationPageLoader (){
+        return new ModelAndView ("Registration");
     }
 
-    @RequestMapping("/Login")
-    public ModelAndView RedirectionPageLoader (@ModelAttribute ("user") User user){
-        ModelAndView modelAndView = new ModelAndView ();
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView submitNewAdminUser (@ModelAttribute ("user") User user){
+        ModelAndView modelAndView = new ModelAndView();
 
-        if(userValidator.checkUserAuthorization(user)){
+        if (userRegistrator.registerNewUser(user)) {
             modelAndView.setViewName("redirect:/Welcome");
             modelAndView.addObject("isAdmin", "true");
-            logger.debug("Successful log in by user: " +user.getLogin());
-        } else {
-            modelAndView.setViewName("redirect:/");
+        }else{
+            modelAndView.setViewName("redirect:/Registration");
             modelAndView.addObject("error", true);
         }
         return modelAndView;

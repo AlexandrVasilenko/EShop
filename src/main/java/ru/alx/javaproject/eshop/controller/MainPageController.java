@@ -12,26 +12,21 @@ public class MainPageController {
     @RequestMapping("/Welcome")
     public ModelAndView mainPageLoader (){
         ModelAndView modelAndView = new ModelAndView("MainPage");
-
         LocalDate today = LocalDate.now();
-
         modelAndView.addObject("todayDate", today);
-        modelAndView.addObject("isAdmin", "true");
 
         return modelAndView;
 
     }
 
-    @RequestMapping("")
+    /*@RequestMapping("")
     public ModelAndView mainPageLoader2 (){
         ModelAndView modelAndView = new ModelAndView("MainPage");
-
         LocalDate today = LocalDate.now();
-
         modelAndView.addObject("todayDate", today);
         return modelAndView;
 
-    }
+    }*/
 
 
 }
