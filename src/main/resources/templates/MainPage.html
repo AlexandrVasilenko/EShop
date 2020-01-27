@@ -10,8 +10,8 @@
                         <title>Mystery EShop</title>
                     </head>
                     
-                    <body onload = validationAdminButton()>
-                        <input type="hidden" id="adminButtonValidator" name="validator" th:value="${isAdmin}"/>
+                    <body onload = "validationAdminButton()">
+                        <input type="hidden" id="adminButtonValidator" name="validator" th:text="${isAdmin}"/>
                     
                     <div class="float-right">
                             <a href="./Contacts" ><img class="logo" src="../images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
