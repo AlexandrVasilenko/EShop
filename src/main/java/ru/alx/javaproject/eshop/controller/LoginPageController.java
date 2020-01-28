@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
+import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserValidator;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.core.Context;
-import java.time.LocalDate;
 
 @Controller
 public class LoginPageController {
@@ -35,8 +33,9 @@ public class LoginPageController {
     }
 
     @RequestMapping("/Login")
-    public ModelAndView RedirectionPageLoader (@ModelAttribute ("user") User user){
+    public ModelAndView RedirectionPageLoader (@ModelAttribute ("user") UserCredentials userCredentials){
         ModelAndView modelAndView = new ModelAndView ();
+        User user = new User(userCredentials.getLogin(),userCredentials.getPassword().hashCode());
 
         if(userValidator.checkUserAuthorization(user)){
             modelAndView.setViewName("redirect:/Welcome");
