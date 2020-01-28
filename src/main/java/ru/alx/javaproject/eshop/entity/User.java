@@ -16,7 +16,7 @@ public class User {
     private int id;
 
     private String login;
-    private String password;
+    private int password;
 
     public int getId() {
         return id;
@@ -34,15 +34,15 @@ public class User {
         this.login = login;
     }
 
-    public String getPassword() {
+    public int getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(int password) {
         this.password = password;
     }
 
-    public User(String login, String password) {
+    public User(String login, int password) {
         this.login = login;
         this.password = password;
     }

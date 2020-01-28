@@ -24,6 +24,7 @@ public class UserRepository {
 
     private User add(User user) {
         User newUser = clone(user);
+        newUser.setPassword(newUser.getPassword());
         //profileList.add(newProfile);
         em.persist(newUser);
         return clone(newUser);

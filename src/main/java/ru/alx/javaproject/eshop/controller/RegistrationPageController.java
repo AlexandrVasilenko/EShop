@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
+import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserRegistrator;
-import ru.alx.javaproject.eshop.service.UserValidator;
-
-import javax.jws.soap.SOAPBinding;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @Controller
 @RequestMapping(value = "Registration")
@@ -32,8 +28,9 @@ public class RegistrationPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView submitNewAdminUser (@ModelAttribute ("user") User user){
+    public ModelAndView submitNewAdminUser (@ModelAttribute ("user") UserCredentials userCredentials){
         ModelAndView modelAndView = new ModelAndView();
+        User user = new User(userCredentials.getLogin(), userCredentials.getPassword().hashCode());
 
         if (userRegistrator.registerNewUser(user)) {
             modelAndView.setViewName("redirect:/Welcome");
