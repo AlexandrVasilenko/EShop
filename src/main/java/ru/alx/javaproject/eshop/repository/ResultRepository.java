@@ -2,7 +2,7 @@ package ru.alx.javaproject.eshop.repository;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDto;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.entity.Result;
@@ -27,9 +27,9 @@ public class ResultRepository {
         return resultList;
     }
 
-    public synchronized AbilityResultDTO findOne(int id) {
+    public synchronized AbilityResultDto findOne(int id) {
         Result result = em.find(Result.class, id);
-        AbilityResultDTO list = new AbilityResultDTO();
+        AbilityResultDto list = new AbilityResultDto();
         list.setAbilityList(unwrapFromDB(result).get(id));
         return list;
     }

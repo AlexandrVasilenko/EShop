@@ -15,7 +15,7 @@ public class UserRegistrator {
     UserValidator userValidator;
 
     public boolean registerNewUser (User user) {
-        if(!userValidator.checkUserExistency(user)) {
+        if(!userValidator.checkUserExistence(user)) {
             userRepository.save(user);
             return true;
         } else {

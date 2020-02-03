@@ -8,6 +8,7 @@ import ru.alx.javaproject.eshop.entity.Result;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -37,7 +38,7 @@ public class ProfileRepository {
         return update(profile, index);
     }
 
-    public synchronized void delete(int id) {
+    public synchronized void deleteById(int id) {
         int index = getIndex(id);
         if (index == -1) {
             return;
@@ -52,7 +53,7 @@ public class ProfileRepository {
 
     public synchronized void deleteAll() {
         for (Profile profile : findAll()) {
-            delete(profile.getPlayerId());
+            deleteById(profile.getPlayerId());
         }
     }
 
@@ -70,9 +71,14 @@ public class ProfileRepository {
 
     private Profile update(Profile profile, int index) {
         Profile newProfile = clone(profile);
-        delete(profile.getPlayerId());
+        deleteById(profile.getPlayerId());
         em.persist(newProfile);
         return clone(newProfile);
+    }
+
+
+    public void delete(Profile profile) {
+
     }
 
     private Profile add(Profile profile) {

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
 import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserValidator;
+import ru.alx.javaproject.eshop.utility.MD5;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,7 +36,7 @@ public class LoginPageController {
     @RequestMapping("/Login")
     public ModelAndView RedirectionPageLoader (@ModelAttribute ("user") UserCredentials userCredentials){
         ModelAndView modelAndView = new ModelAndView ();
-        User user = new User(userCredentials.getLogin(),userCredentials.getPassword().hashCode());
+        User user = new User(userCredentials.getLogin(), MD5.getMd5(userCredentials.getPassword()));
 
         if(userValidator.checkUserAuthorization(user)){
             modelAndView.setViewName("redirect:/Welcome");

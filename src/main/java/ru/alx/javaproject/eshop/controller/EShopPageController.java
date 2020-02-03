@@ -1,13 +1,12 @@
 package ru.alx.javaproject.eshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDto;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
@@ -42,7 +41,7 @@ public class EShopPageController {
         ModelAndView modelAndView = new ModelAndView("EShop");
 
         List<Ability> listOfAbilities = abilitiesRepository.findAll();
-        AbilityResultDTO list = new AbilityResultDTO();
+        AbilityResultDto list = new AbilityResultDto();
         list.setAbilityList(abilitiesRepository.findAll());
         Profile profile;
         if(httpSession.getAttribute("currentPlayerId") != null){
@@ -59,7 +58,7 @@ public class EShopPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDTO resultDTO) {
+    public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDto resultDTO) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
         if(httpSession.getAttribute("currentPlayerId") == null){
             modelAndView.setViewName("redirect:EShop");

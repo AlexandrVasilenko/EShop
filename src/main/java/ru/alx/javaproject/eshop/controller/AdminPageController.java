@@ -31,7 +31,7 @@ public class AdminPageController {
     @RequestMapping(value = "Admin/{playerId}", method = {RequestMethod.POST, RequestMethod.DELETE})
     public ModelAndView adminPageDeleteProfile(@PathVariable("playerId") int id) {
         ModelAndView modelAndView = new ModelAndView("redirect:../Admin");
-        profileRepository.delete(id);
+        profileRepository.deleteById(id);
         if ((int)httpSession.getAttribute("currentPlayerId") == id) {
             httpSession.setAttribute("currentPlayerId", null);
         }

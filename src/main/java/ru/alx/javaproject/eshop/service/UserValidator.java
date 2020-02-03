@@ -23,7 +23,7 @@ public class UserValidator {
     public boolean checkUserAuthorization (User user){
         boolean isUserValid = false;
         User currentUser = new User (user.getLogin(),user.getPassword());
-        int passwordFromDB = 0;
+        String passwordFromDB = "";
         try {
              passwordFromDB = em.createQuery("select x from User x where x.login='" + currentUser.getLogin() + "'", User.class).getSingleResult().getPassword();
         } catch (Exception e){
@@ -32,13 +32,13 @@ public class UserValidator {
             logger.debug("Invalid username" + currentUser.getLogin());
         }
 
-        if (passwordFromDB != 0 && currentUser.getPassword() == passwordFromDB){
+        if (currentUser.getPassword().equals(passwordFromDB)){
             isUserValid = true;
         }
         return isUserValid;
     }
 
-    public boolean checkUserExistency (User user){
+    public boolean checkUserExistence(User user){
         boolean isUserAlreadyExist = false;
 
         //if (em.createQuery("select x from User x where x.login='" + user.getLogin() + "'", User.class).getSingleResult()){)

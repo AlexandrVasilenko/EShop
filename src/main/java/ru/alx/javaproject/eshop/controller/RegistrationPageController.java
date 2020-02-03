@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
 import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserRegistrator;
+import ru.alx.javaproject.eshop.utility.MD5;
 
 @Controller
 @RequestMapping(value = "Registration")
@@ -30,7 +31,7 @@ public class RegistrationPageController {
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView submitNewAdminUser (@ModelAttribute ("user") UserCredentials userCredentials){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User(userCredentials.getLogin(), userCredentials.getPassword().hashCode());
+        User user = new User(userCredentials.getLogin(), MD5.getMd5(userCredentials.getPassword()));
 
         if (userRegistrator.registerNewUser(user)) {
             modelAndView.setViewName("redirect:/Welcome");
