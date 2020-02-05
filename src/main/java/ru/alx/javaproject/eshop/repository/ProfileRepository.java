@@ -1,95 +1,38 @@
 package ru.alx.javaproject.eshop.repository;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.entity.Result;
+import ru.alx.javaproject.eshop.service.ProfileService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-@Transactional
-public class ProfileRepository {
+public class ProfileRepository extends ProfileService implements RepositoryDao<Profile> {
 
-    @PersistenceContext
-    private EntityManager em;
-
-    public synchronized List<Profile> findAll() {
-
-        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        return profileList;
+    @Override
+    public void save(Profile profile) {
+        super.save(profile,profile.getPlayerId());
     }
 
-
-    public synchronized Profile findOne(int id) {
-        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        return profile;
+    @Override
+    public List<Profile> findAll() {
+        return super.findAll();
     }
 
-
-    public synchronized Profile save(Profile profile) {
-        int index = getIndex(profile.getPlayerId());
-        if (index == -1) {
-            return add(profile);
-        }
-        return update(profile, index);
+    @Override
+    public Profile findOneById(int id) {
+        return super.findOne(id).get();
     }
 
-    public synchronized void deleteById(int id) {
-        int index = getIndex(id);
-        if (index == -1) {
-            return;
-        }
-        Profile profile = em.createQuery("select x from Profile x where x.playerId = " + id, Profile.class).getSingleResult();
-        em.remove(profile);
-        if (em.find(Result.class,id) != null){
-            em.remove(em.find(Result.class,id));
-        }
-
+    @Override
+    public void deleteById(int id) {
+        super.deleteById(id);
     }
 
-    public synchronized void deleteAll() {
+    @Override
+    public void deleteAll(){
         for (Profile profile : findAll()) {
             deleteById(profile.getPlayerId());
         }
-    }
-
-
-    private int getIndex(int id) {
-        List<Profile> profileList = em.createQuery("from Profile", Profile.class).getResultList();
-        for (int i = 0; i < profileList.size(); i++) {
-            Profile profile = profileList.get(i);
-            if (profile.getPlayerId() == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    private Profile update(Profile profile, int index) {
-        Profile newProfile = clone(profile);
-        deleteById(profile.getPlayerId());
-        em.persist(newProfile);
-        return clone(newProfile);
-    }
-
-
-    public void delete(Profile profile) {
-
-    }
-
-    private Profile add(Profile profile) {
-        Profile newProfile = clone(profile);
-        //profileList.add(newProfile);
-        em.persist(newProfile);
-        return clone(newProfile);
-    }
-
-    private Profile clone(Profile profile) {
-        return new Profile(profile.getPlayerName(), profile.getNutritionType(), profile.getSportActivity(), profile.getPlayerAge(), profile.getSleepingHours(), profile.isSmoking(), profile.isAlcohol(), profile.isInLove(),
-                profile.getGender());
     }
 }

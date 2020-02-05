@@ -10,7 +10,6 @@ import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.repository.ProfileRepository;
 
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.Context;
 
 
 @Controller

@@ -1,44 +1,63 @@
 package ru.alx.javaproject.eshop.Dao;
 
 import com.sun.istack.Nullable;
-import ru.alx.javaproject.eshop.entity.User;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseDao<T> implements Dao {
+@Transactional
+public abstract class BaseDao<T> {
 
     @PersistenceContext
     protected EntityManager em;
 
-    public synchronized Optional<T> findOne(@Nullable Object id) {
-        if (id == null) {
-            return Optional.empty();
-        }
+    Type t = getClass().getGenericSuperclass();
+
+    protected synchronized Optional<T> findOne(@Nullable int id) {
         return Optional.ofNullable(em.find(getEntityClassType(), id));
     }
 
-    public synchronized List findAll() {
-        return null;
+    protected synchronized List<T> findAll() {
+        return em.createQuery("from "+ getEntityClassType().getName(), getEntityClassType()).getResultList();
     }
 
-
-    public synchronized void update(Object o, int id) {
-
+    protected synchronized void save(Object o, int id) {
+        if (o.equals(findOne(id).isPresent())) {
+            update(o, id);
+        } else {
+            add(o);
+        }
     }
 
-    public synchronized void delete(Object o) {
-
+    protected synchronized void delete(Object o) {
+        em.remove(o);
     }
 
-    public synchronized void deleteById(int id) {
+    protected synchronized void deleteById(int id) {
+        Optional<T> requiredObjectToDelete = findOne(id);
 
+        //requiredObjectToDelete.ifPresent(value -> em.remove(value));
+        if (requiredObjectToDelete.isPresent()){
+            em.remove(requiredObjectToDelete.get());
+        }
+    }
+
+    private void update (Object o, int id) {
+        deleteById(id);
+        add(o);
+    }
+
+    private void add (Object o) {
+        em.persist(o);
     }
 
     protected Class<T> getEntityClassType() {
-        return (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        return (Class<T>) ((ParameterizedType)((Class)t).getGenericSuperclass()).getActualTypeArguments()[0];
     }
+
 }

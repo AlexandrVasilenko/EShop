@@ -1,21 +1,17 @@
 package ru.alx.javaproject.eshop.entity;
 
 
-import org.apache.tomcat.jni.Time;
-import ru.alx.javaproject.eshop.service.TimeReserveValidationService;
+import ru.alx.javaproject.eshop.service.TimeReserveValidation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "profiles")
 public class Profile {
-
-    private String playerName;
-    private String nutritionType;
-    private String gender;
 
     @Id
     @Column(name = "playerid")
@@ -24,6 +20,10 @@ public class Profile {
     private int sleepingHours;
     private int sportActivity;
     private int timeReserve;
+
+    private String playerName;
+    private String nutritionType;
+    private String gender;
 
     private boolean smoking;
     private boolean alcohol;
@@ -42,7 +42,7 @@ public class Profile {
         this.smoking = smoking != null && smoking;
         this.inLove = inLove != null && inLove;
 
-        TimeReserveValidationService trvs = new TimeReserveValidationService();
+        TimeReserveValidation trvs = new TimeReserveValidation();
         this.timeReserve = trvs.calculateTimeReserve(gender, nutritionType, playerAge, sleepingHours, sportActivity, this.smoking, this.alcohol, this.inLove);
     }
 
@@ -151,5 +151,21 @@ public class Profile {
                 ", inLove=" + inLove +
                 ", gender=" + gender +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Profile)) return false;
+        Profile profile = (Profile) o;
+        return playerId == profile.playerId &&
+                playerAge == profile.playerAge &&
+                playerName.equals(profile.playerName) &&
+                gender.equals(profile.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerId, playerAge, playerName, gender);
     }
 }

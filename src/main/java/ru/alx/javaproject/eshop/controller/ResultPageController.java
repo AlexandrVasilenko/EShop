@@ -22,7 +22,7 @@ public class ResultPageController {
     @RequestMapping(value = "/Result", method = RequestMethod.GET)
     public ModelAndView resultPageLoader() {
         ModelAndView modelAndView = new ModelAndView("Result");
-        modelAndView.addObject("abilities", resultRepository.findOne((int) httpSession.getAttribute("currentPlayerId")).getAbilityList());
+        modelAndView.addObject("abilities", resultRepository.findResultList((int) httpSession.getAttribute("currentPlayerId")).getAbilityList());
         return modelAndView;
     }
 

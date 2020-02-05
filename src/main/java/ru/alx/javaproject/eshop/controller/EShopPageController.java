@@ -45,7 +45,7 @@ public class EShopPageController {
         list.setAbilityList(abilitiesRepository.findAll());
         Profile profile;
         if(httpSession.getAttribute("currentPlayerId") != null){
-            profile = profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId"));
+            profile = profileRepository.findOneById((int) httpSession.getAttribute("currentPlayerId"));
         } else {
             profile = new Profile("No Profile found","",0 ,0 ,0 ,false,false,false,"");
         }

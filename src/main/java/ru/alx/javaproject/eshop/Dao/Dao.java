@@ -9,9 +9,7 @@ public interface Dao<T> {
 
     List<T> findAll();
 
-    void save(T t);
-
-    void update(T t, int id);
+    void save(T t, int id);
 
     void delete(T t);
 
