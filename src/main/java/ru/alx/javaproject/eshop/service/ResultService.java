@@ -24,20 +24,14 @@ public class ResultService extends BaseDao<Result> {
         return result;
     }
 
-    protected Map<Integer, List<Ability>> unwrapFromDB(Result result) {
-        Map<Integer, List<Ability>> outputMap = new HashMap<>();
-
+    protected List<Ability> unwrapFromDB(Result result) {
         List<Ability> abilityList = new ArrayList<>();
-
-        int playerId = em.find(Profile.class, result.getPlayerId()).getPlayerId();
 
         StringTokenizer st = new StringTokenizer(result.getAbilityListString(), ",");
         while (st.hasMoreTokens()) {
             abilityList.add(em.find(Ability.class, Long.parseLong(st.nextToken())));
         }
-        outputMap.put(playerId, abilityList);
-        return outputMap;
-
+        return abilityList;
     }
 
 }

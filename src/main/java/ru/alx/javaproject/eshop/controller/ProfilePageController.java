@@ -38,7 +38,7 @@ public class ProfilePageController {
     public ModelAndView defaultProfilePageLoader() {
         ModelAndView modelAndView = new ModelAndView("Profile.html");
         if (httpSession.getAttribute("currentPlayerId") != null){
-            modelAndView.addObject("profile", profileRepository.findOneById((int) httpSession.getAttribute("currentPlayerId")));
+            modelAndView.addObject("profile", profileRepository.findOneById((Integer)httpSession.getAttribute("currentPlayerId")));
         } else {
             modelAndView.addObject("warningText", "! Please go to Survey page to create a profile !");
         }

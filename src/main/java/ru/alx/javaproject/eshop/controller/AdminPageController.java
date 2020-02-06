@@ -32,7 +32,7 @@ public class AdminPageController {
     public ModelAndView adminPageDeleteProfile(@PathVariable("playerId") int id) {
         ModelAndView modelAndView = new ModelAndView("redirect:../Admin");
         profileRepository.deleteById(id);
-        if (String.valueOf(id) == httpSession.getAttribute("currentPlayerId")) {
+        if (id == (Integer) httpSession.getAttribute("currentPlayerId")) {
             httpSession.setAttribute("currentPlayerId", null);
         }
         return modelAndView;

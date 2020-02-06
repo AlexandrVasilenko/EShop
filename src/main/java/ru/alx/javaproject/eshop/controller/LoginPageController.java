@@ -23,9 +23,6 @@ public class LoginPageController {
     @Autowired
     UserValidator userValidator;
 
-    @PersistenceContext
-    EntityManager em;
-
     @RequestMapping("/")
     public ModelAndView loginPageLoader (){
         ModelAndView modelAndView = new ModelAndView("LoginPage");

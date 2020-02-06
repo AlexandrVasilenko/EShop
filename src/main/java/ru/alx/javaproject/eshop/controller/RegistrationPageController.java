@@ -13,6 +13,8 @@ import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserRegistrator;
 import ru.alx.javaproject.eshop.utility.MD5;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping(value = "Registration")
 public class RegistrationPageController {
@@ -21,6 +23,9 @@ public class RegistrationPageController {
 
     @Autowired
     UserRegistrator userRegistrator;
+
+    @Autowired
+    HttpSession httpSession;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -32,6 +37,7 @@ public class RegistrationPageController {
     public ModelAndView submitNewAdminUser (@ModelAttribute ("user") UserCredentials userCredentials){
         ModelAndView modelAndView = new ModelAndView();
         User user = new User(userCredentials.getLogin(), MD5.getMd5(userCredentials.getPassword()));
+        httpSession.setAttribute("currentPlayerId", null);
 
         if (userRegistrator.registerNewUser(user)) {
             modelAndView.setViewName("redirect:/Welcome");

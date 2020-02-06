@@ -1,5 +1,6 @@
 package ru.alx.javaproject.eshop.repository;
 
+import org.hibernate.annotations.Cascade;
 import org.springframework.stereotype.Repository;
 import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.service.ProfileService;
@@ -19,10 +20,12 @@ public class ProfileRepository extends ProfileService implements RepositoryDao<P
         return super.findAll();
     }
 
+
     @Override
     public Profile findOneById(int id) {
         return super.findOne(id).get();
     }
+
 
     @Override
     public void deleteById(int id) {

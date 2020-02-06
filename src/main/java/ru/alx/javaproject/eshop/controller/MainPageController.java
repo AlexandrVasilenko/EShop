@@ -18,15 +18,4 @@ public class MainPageController {
         return modelAndView;
 
     }
-
-    /*@RequestMapping("")
-    public ModelAndView mainPageLoader2 (){
-        ModelAndView modelAndView = new ModelAndView("MainPage");
-        LocalDate today = LocalDate.now();
-        modelAndView.addObject("todayDate", today);
-        return modelAndView;
-
-    }*/
-
-
 }

@@ -19,10 +19,9 @@ import java.util.StringTokenizer;
 @Repository
 public class ResultRepository extends ResultService implements RepositoryDao<Result> {
 
-
     @Override
     public void save(Result result) {
-        super.save(result,result.getPlayerId());
+        //TODO implement auto DB table creation
     }
 
     public synchronized List<Result> findAll() {
@@ -31,12 +30,12 @@ public class ResultRepository extends ResultService implements RepositoryDao<Res
 
     @Override
     public Result findOneById(int id) {
-        return super.findOne(id).get();
+        return super.findOne(id).orElse(new Result());
     }
 
     @Override
     public void deleteById(int id) {
-        super.deleteById(id);
+
     }
 
     @Override
@@ -45,19 +44,15 @@ public class ResultRepository extends ResultService implements RepositoryDao<Res
     }
 
     public synchronized AbilityResultDto findResultList(int id) {
-        Result result = em.find(Result.class, id);
         AbilityResultDto list = new AbilityResultDto();
-        list.setAbilityList(unwrapFromDB(result).get(id));
+        list.setAbilityList(unwrapFromDB(findOneById(id)));
         return list;
     }
 
 
     public synchronized void save(int playerId, List<Ability> abilityList) {
-        int index = getIndex(playerId);
-        if (index == -1) {
-            add(wrapToDB(abilityList, playerId));
-        }
-        update(wrapToDB(abilityList, playerId));
+            super.deleteById(playerId);
+            em.persist(wrapToDB(abilityList, playerId));
     }
 
 
