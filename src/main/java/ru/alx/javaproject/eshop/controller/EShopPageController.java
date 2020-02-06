@@ -47,7 +47,7 @@ public class EShopPageController {
         if(httpSession.getAttribute("currentPlayerId") != null){
             profile = profileRepository.findOneById((int) httpSession.getAttribute("currentPlayerId"));
         } else {
-            profile = new Profile("No Profile found","",0 ,0 ,0 ,false,false,false,"");
+            profile = new Profile("No Profile found","MeatEater",0 ,0 ,0 ,false,false,false,"");
         }
 
 

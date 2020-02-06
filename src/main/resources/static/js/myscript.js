@@ -30,3 +30,9 @@ var registrationError = function() {
       document.getElementById('signup-submit').disabled = true;
     }
   }
+
+  function validationTime(){
+    if (document.getElementById("timeReserve").value <= 0){
+        document.getElementById("buyButton").disabled = true;
+    } 
+}

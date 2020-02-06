@@ -12,6 +12,7 @@ public class TimeReserveValidation {
 
     public int calculateTimeReserve(String gender, String nutritionType, int playerAge, int sleepingHours, int sportActivity, boolean smoking, boolean alcohol, boolean inLove) {
 
+
         int result;
         int usefulHoursPerYear = 52 * 10;
         int lifetime = -1;
@@ -36,7 +37,7 @@ public class TimeReserveValidation {
                return -1;
        }
 
-       if(lifetime - playerAge <=0){
+       if(lifetime - playerAge <=0 || sleepingHours == 0){
            return -1;
        }
        result = lifetime - playerAge;

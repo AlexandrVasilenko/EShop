@@ -10,7 +10,7 @@
                         <title>Mystery EShop</title>
                     </head>
                     
-                    <body>
+                    <body onload = "validationTime()">
                     
                     <div class="float-right">
                             <a href="./Contacts" ><img class="logo" src="../images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
@@ -34,10 +34,11 @@
     <h3 th:text="'Player name: ' + ${profile.playerName}"> Player name: Nameless</h3><br>
 </div>
   <div class="container w-100">
-    <h3>Your time credit: <span style="font-size:30px" th:text="${profile.timeReserve} + ' hours'">111 hours</span>
+    <h3>Your time credit: <span id="timeReserve" style="font-size:30px" th:text="${profile.timeReserve}">111 hours</span></h3><h3> hours</h3>
+      <span><h3></h3></span>
       <span style="float:right">
-        <input class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy selected"/>
-      </span></h3>
+        <input id="buyButton" class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy selected"/>
+      </span>
   </div>
   
         <table class="table table-hover table-primary">
@@ -98,6 +99,7 @@
 
 
 <script src="../static/js/bootstrap.min.js"></script>
+<script th:src="${'./js/myscript.js'}" ></script>
 </body>
 
 
