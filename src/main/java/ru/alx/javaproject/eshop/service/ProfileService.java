@@ -1,10 +1,19 @@
 package ru.alx.javaproject.eshop.service;
 
-import org.springframework.stereotype.Service;
-import ru.alx.javaproject.eshop.Dao.BaseDao;
 import ru.alx.javaproject.eshop.entity.Profile;
 
-@Service
-public class ProfileService extends BaseDao<Profile> {
+import java.util.List;
+
+public interface ProfileService {
+
+    void save(Profile p);
+
+    List<Profile> findAll();
+
+    Profile findOneById(int id);
+
+    void deleteById(int id);
+
+    void deleteAll();
 
 }

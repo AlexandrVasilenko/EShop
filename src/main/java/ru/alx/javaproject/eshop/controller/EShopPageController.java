@@ -9,9 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.DTO.AbilityResultDto;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
-import ru.alx.javaproject.eshop.repository.ProfileRepository;
-import ru.alx.javaproject.eshop.repository.ResultRepository;
+import ru.alx.javaproject.eshop.service.AbilityService;
+import ru.alx.javaproject.eshop.service.ProfileService;
+import ru.alx.javaproject.eshop.service.ResultService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,13 +22,13 @@ import java.util.List;
 public class EShopPageController {
 
     @Autowired
-    private ResultRepository resultRepository;
+    private ResultService resultService;
 
     @Autowired
-    private ProfileRepository profileRepository;
+    private ProfileService profileService;
 
     @Autowired
-    private AbilitiesRepository abilitiesRepository;
+    private AbilityService abilityService;
 
     @Autowired
     private HttpSession httpSession;
@@ -40,12 +40,12 @@ public class EShopPageController {
     public ModelAndView eshopPageLoader() {
         ModelAndView modelAndView = new ModelAndView("EShop");
 
-        List<Ability> listOfAbilities = abilitiesRepository.findAll();
+        List<Ability> listOfAbilities = abilityService.findAll();
         AbilityResultDto list = new AbilityResultDto();
-        list.setAbilityList(abilitiesRepository.findAll());
+        list.setAbilityList(abilityService.findAll());
         Profile profile;
         if(httpSession.getAttribute("currentPlayerId") != null){
-            profile = profileRepository.findOneById((int) httpSession.getAttribute("currentPlayerId"));
+            profile = profileService.findOneById((int) httpSession.getAttribute("currentPlayerId"));
         } else {
             profile = new Profile("No Profile found","MeatEater",0 ,0 ,0 ,false,false,false,"");
         }
@@ -63,7 +63,7 @@ public class EShopPageController {
         if(httpSession.getAttribute("currentPlayerId") == null){
             modelAndView.setViewName("redirect:EShop");
         } else {
-            resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+            resultService.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
         }
         return modelAndView;
     }

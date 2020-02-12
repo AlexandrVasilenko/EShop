@@ -30,4 +30,11 @@ public class TimeReserveValidationTest {
         assertEquals(-1, timeOld);
         assertEquals(24960, timeFull);
     }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void calculateTimeWithWrongNutritionType (){
+       timeReserveValidation.calculateTimeReserve("Male","AllEater",30,4,4,true,true,true);
+    }
+
+
 }

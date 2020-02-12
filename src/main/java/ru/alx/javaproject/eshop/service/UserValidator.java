@@ -3,6 +3,7 @@ package ru.alx.javaproject.eshop.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.alx.javaproject.eshop.controller.LoginPageController;
 import ru.alx.javaproject.eshop.entity.User;
@@ -12,7 +13,7 @@ import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Component
 public class UserValidator {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginPageController.class);

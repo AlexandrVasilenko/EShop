@@ -16,7 +16,7 @@ public abstract class BaseDao<T> {
     @PersistenceContext
     protected EntityManager em;
 
-    Type t = getClass().getGenericSuperclass();
+    //Type t = getClass().getGenericSuperclass();
 
     protected synchronized Optional<T> findOne(@Nullable int id) {
         return Optional.ofNullable(em.find(getEntityClassType(), id));
@@ -57,7 +57,9 @@ public abstract class BaseDao<T> {
     }
 
     protected Class<T> getEntityClassType() {
-        return (Class<T>) ((ParameterizedType)((Class)t).getGenericSuperclass()).getActualTypeArguments()[0];
+       // return (Class<T>) ((ParameterizedType)((Class)t).getGenericSuperclass()).getActualTypeArguments()[0];
+        return (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+
     }
 
 }

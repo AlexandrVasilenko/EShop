@@ -2,7 +2,7 @@ package ru.alx.javaproject.eshop.repository;
 
 import java.util.List;
 
-public interface RepositoryDao<T> {
+public interface Repository<T> {
 
     void save(T o);
 

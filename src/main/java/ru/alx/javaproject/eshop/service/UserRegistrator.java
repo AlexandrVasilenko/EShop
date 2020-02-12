@@ -1,22 +1,21 @@
 package ru.alx.javaproject.eshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import ru.alx.javaproject.eshop.entity.User;
-import ru.alx.javaproject.eshop.repository.UserRepository;
 
-@Service
+@Component
 public class UserRegistrator {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
     UserValidator userValidator;
 
     public boolean registerNewUser (User user) {
         if(!userValidator.checkUserExistence(user)) {
-            userRepository.save(user);
+            userService.save(user);
             return true;
         } else {
             return false;

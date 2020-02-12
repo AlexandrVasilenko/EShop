@@ -2,10 +2,10 @@ package ru.alx.javaproject.eshop.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import ru.alx.javaproject.eshop.utility.NutritionType;
 
-@Service
+@Component
 public class TimeReserveValidation {
 
     private static final Logger logger = LoggerFactory.getLogger(TimeReserveValidation.class);

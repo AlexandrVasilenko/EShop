@@ -1,7 +1,9 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -13,27 +15,33 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
-/*@RunWith(SpringJUnit4ClassRunner.class)
+/*
+@RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml")*/
+//@ContextConfiguration("file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml")
+*/
 
 public class WebPageAccess {
-   /* private MockMvc mockMvc;
+    /*private MockMvc mockMvc;
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
-    protected WebApplicationContext wac;
+    private WebApplicationContext wac;
+
+    @Autowired
+    private ApplicationContext ac;
 
     @Before
     public void setup() {
         this.mockMvc = webAppContextSetup(this.wac).build();
     }
 
+    @Ignore
     @Test
     public void simple() throws Exception {
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get("/Welcome"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("LoginPage"));
+                .andExpect(view().name("MainPage"));
     }*/
 }
 
