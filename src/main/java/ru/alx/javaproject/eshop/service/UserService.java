@@ -15,4 +15,6 @@ public interface UserService {
 
     void deleteAll();
 
+    User getUserByLogin(String login);
+
 }

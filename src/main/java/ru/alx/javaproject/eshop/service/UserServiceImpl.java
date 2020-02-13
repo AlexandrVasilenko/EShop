@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.alx.javaproject.eshop.entity.User;
 import ru.alx.javaproject.eshop.repository.Repository;
+import ru.alx.javaproject.eshop.repository.UserRepository;
 
 import java.util.List;
 
@@ -12,6 +13,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private Repository<User> repository;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @Override
@@ -37,5 +41,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteAll() {
         repository.deleteAll();
+    }
+
+    @Override
+    public User getUserByLogin(String login) {
+        return userRepository.getUserByLogin(login);
     }
 }

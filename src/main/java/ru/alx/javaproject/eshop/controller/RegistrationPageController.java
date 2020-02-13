@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.User;
-import ru.alx.javaproject.eshop.entity.UserCredentials;
 import ru.alx.javaproject.eshop.service.UserRegistrator;
 import ru.alx.javaproject.eshop.utility.MD5;
 
@@ -22,10 +21,10 @@ public class RegistrationPageController {
     private static final Logger logger = LoggerFactory.getLogger(RegistrationPageController.class);
 
     @Autowired
-    UserRegistrator userRegistrator;
+    private UserRegistrator userRegistrator;
 
     @Autowired
-    HttpSession httpSession;
+    private HttpSession httpSession;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -34,7 +33,7 @@ public class RegistrationPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView submitNewAdminUser (@ModelAttribute ("user") UserCredentials userCredentials){
+    public ModelAndView submitNewAdminUser (@ModelAttribute ("user") User userCredentials){
         ModelAndView modelAndView = new ModelAndView();
         User user = new User(userCredentials.getLogin(), MD5.getMd5(userCredentials.getPassword()));
         httpSession.setAttribute("currentPlayerId", null);

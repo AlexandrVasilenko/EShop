@@ -2,6 +2,8 @@ package ru.alx.javaproject.eshop.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -18,38 +20,39 @@ public class UserValidator {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginPageController.class);
 
-    @PersistenceContext
-    private EntityManager em;
+    @Autowired
+    private UserService userService;
 
-    public boolean checkUserAuthorization (User user){
-        boolean isUserValid = false;
-        User currentUser = new User (user.getLogin(),user.getPassword());
+    public boolean checkUserAuthorization(User user) {
         String passwordFromDB = "";
         try {
-             passwordFromDB = em.createQuery("select x from User x where x.login='" + currentUser.getLogin() + "'", User.class).getSingleResult().getPassword();
-        } catch (Exception e){
-            //throw new IllegalArgumentException("User is not found");
-            //throw new UsernameNotFoundException("Invalid username or password.");
-            logger.debug("Invalid username" + currentUser.getLogin());
+            passwordFromDB = userService.getUserByLogin(user.getLogin()).getPassword();
+        } catch (EmptyResultDataAccessException e) {
+            logger.debug("Invalid username" + user.getLogin());
+            return false;
         }
 
-        if (currentUser.getPassword().equals(passwordFromDB)){
-            isUserValid = true;
+        if (user.getPassword().equals(passwordFromDB)) {
+            return true;
         }
-        return isUserValid;
+        return false;
     }
 
-    public boolean checkUserExistence(User user){
-        boolean isUserAlreadyExist = false;
+    public boolean checkUserExistence(User user) {
 
-        //if (em.createQuery("select x from User x where x.login='" + user.getLogin() + "'", User.class).getSingleResult()){)
-        List<User> userLoginList = em.createQuery("from User", User.class).getResultList();
+        try {
+            userService.getUserByLogin(user.getLogin());
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
+        return true;
+
+        /*List<User> userLoginList = em.createQuery("from User", User.class).getResultList();
         for (User x: userLoginList){
             if (x.equals(user)){
                 isUserAlreadyExist = true;
                 break;
             }
-        }
-        return isUserAlreadyExist;
+        }*/
     }
 }
