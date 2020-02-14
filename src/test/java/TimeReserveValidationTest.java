@@ -10,7 +10,7 @@ public class TimeReserveValidationTest {
     private Profile profileOld;
     private Profile profileFull;
 
-    TimeReserveValidation timeReserveValidation = new TimeReserveValidation();
+    private TimeReserveValidation timeReserveValidation = new TimeReserveValidation();
 
     @Before
     public void profilesCreation(){

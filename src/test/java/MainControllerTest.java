@@ -4,8 +4,12 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import ru.alx.javaproject.eshop.controller.MainPageController;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -28,8 +32,11 @@ public class MainControllerTest {
 
     @Test
     public void mainPageControllerTest () throws Exception {
+
+
         mockMvc.perform(get("/Welcome"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("MainPage"));
+                //.andExpect(MockMvcResultMatchers.content().string(String.valueOf(LocalDate.now())));
     }
 }
