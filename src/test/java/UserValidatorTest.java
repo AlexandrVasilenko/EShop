@@ -32,9 +32,9 @@ public class UserValidatorTest {
         nonExistedUser = new User("NonExistedName","Password123");
         userWrongPassword = new User ("UserWrongPassword", "12345");
 
-        when(userService.getUserByLogin("TestName")).thenReturn(existedUser);
-        when(userService.getUserByLogin("UserWrongPassword")).thenReturn(existedUser);
-        when(userService.getUserByLogin("NonExistedName")).thenThrow(EmptyResultDataAccessException.class);
+        when(userService.findByLogin("TestName")).thenReturn(existedUser);
+        when(userService.findByLogin("UserWrongPassword")).thenReturn(existedUser);
+        when(userService.findByLogin("NonExistedName")).thenThrow(EmptyResultDataAccessException.class);
 
     }
 

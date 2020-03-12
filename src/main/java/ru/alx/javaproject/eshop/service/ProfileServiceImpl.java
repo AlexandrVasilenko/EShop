@@ -2,18 +2,17 @@ package ru.alx.javaproject.eshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.alx.javaproject.eshop.Dao.BaseDao;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.repository.Repository;
+import ru.alx.javaproject.eshop.repository.ProfileRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
 
     @Autowired
-    private Repository<Profile> repository;
-
+    private ProfileRepository repository;
 
     @Override
     public void save(Profile p) {
@@ -26,8 +25,8 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Profile findOneById(int id) {
-        return repository.findOneById(id);
+    public Profile findById(int id) {
+        return repository.findById(id).orElse(null);
     }
 
     @Override

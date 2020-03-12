@@ -4,16 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import ru.alx.javaproject.eshop.controller.LoginPageController;
 import ru.alx.javaproject.eshop.entity.User;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class UserValidator {
@@ -26,7 +19,7 @@ public class UserValidator {
     public boolean checkUserAuthorization(User user) {
         String passwordFromDB = "";
         try {
-            passwordFromDB = userService.getUserByLogin(user.getLogin()).getPassword();
+            passwordFromDB = userService.findByLogin(user.getLogin()).getPassword();
         } catch (EmptyResultDataAccessException e) {
             logger.debug("Invalid username" + user.getLogin());
             return false;
@@ -41,18 +34,11 @@ public class UserValidator {
     public boolean checkUserExistence(User user) {
 
         try {
-            userService.getUserByLogin(user.getLogin());
+            userService.findByLogin(user.getLogin());
         } catch (EmptyResultDataAccessException e) {
             return false;
         }
         return true;
 
-        /*List<User> userLoginList = em.createQuery("from User", User.class).getResultList();
-        for (User x: userLoginList){
-            if (x.equals(user)){
-                isUserAlreadyExist = true;
-                break;
-            }
-        }*/
     }
 }

@@ -1,11 +1,12 @@
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.repository.Repository;
+import ru.alx.javaproject.eshop.repository.ProfileRepository;
 import ru.alx.javaproject.eshop.service.ProfileService;
 import ru.alx.javaproject.eshop.service.ProfileServiceImpl;
 
@@ -22,7 +23,7 @@ public class ProfileServiceTest {
     private ProfileService profileService = new ProfileServiceImpl();
 
     @Mock
-    private Repository<Profile> repository;;
+    private ProfileRepository repository;;
 
     private List<Profile> list = new ArrayList<>();
     private int secondPlayerId = Math.abs("TestName2".hashCode() + "Vegan".hashCode() + 12 + 5);
@@ -35,7 +36,7 @@ public class ProfileServiceTest {
         list.add(new Profile("TestName3","MeatEater",7,20,3,false,true,true,"Female"));
 
         when(repository.findAll()).thenReturn(list);
-        when(repository.findOneById(secondPlayerId)).thenReturn(list.get(1));
+        when(repository.findById(secondPlayerId)).thenReturn(java.util.Optional.ofNullable(list.get(1)));
     }
 
     @Test
@@ -46,7 +47,7 @@ public class ProfileServiceTest {
 
     @Test
     public void testFindOneById(){
-        assertEquals(list.get(1),profileService.findOneById(secondPlayerId));
+        assertEquals(list.get(1),profileService.findById(secondPlayerId));
     }
 
 }

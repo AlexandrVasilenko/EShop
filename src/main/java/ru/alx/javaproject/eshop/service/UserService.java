@@ -9,12 +9,11 @@ public interface UserService {
 
     List<User> findAll();
 
-    User findOneById(int id);
+    User findById(int id);
 
     void deleteById(int id);
 
     void deleteAll();
 
-    User getUserByLogin(String login);
-
+    User findByLogin(String login);
 }

@@ -25,7 +25,7 @@ public class ProfilePageController {
     @RequestMapping(value = "/Profile/{profileId}", method = RequestMethod.GET)
     public ModelAndView profilePageLoader(@PathVariable("profileId") int playerId) throws Exception {
         ModelAndView modelAndView = new ModelAndView("Profile");
-        Profile profile = profileService.findOneById(playerId);
+        Profile profile = profileService.findById(playerId);
         if (profile == null) {
             throw new Exception("Profile is not found");
         }
@@ -38,7 +38,7 @@ public class ProfilePageController {
     public ModelAndView defaultProfilePageLoader() {
         ModelAndView modelAndView = new ModelAndView("Profile.html");
         if (httpSession.getAttribute("currentPlayerId") != null){
-            modelAndView.addObject("profile", profileService.findOneById((Integer)httpSession.getAttribute("currentPlayerId")));
+            modelAndView.addObject("profile", profileService.findById((int)httpSession.getAttribute("currentPlayerId")));
         } else {
             modelAndView.addObject("warningText", "! Please go to Survey page to create a profile !");
         }

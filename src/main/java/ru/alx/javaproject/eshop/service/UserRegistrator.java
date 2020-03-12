@@ -14,7 +14,7 @@ public class UserRegistrator {
     UserValidator userValidator;
 
     public boolean registerNewUser (User user) {
-        if(!userValidator.checkUserExistence(user)) {
+        if(userService.findByLogin(user.getLogin()) == null) {
             userService.save(user);
             return true;
         } else {

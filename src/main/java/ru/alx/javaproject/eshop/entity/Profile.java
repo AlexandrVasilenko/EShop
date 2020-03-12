@@ -5,8 +5,11 @@ import ru.alx.javaproject.eshop.service.TimeReserveValidation;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -29,6 +32,8 @@ public class Profile {
     private boolean alcohol;
     private boolean inLove;
 
+    @OneToMany (fetch = FetchType.LAZY)
+    private List<Ability> abilities;
 
     public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, Boolean smoking, Boolean alcohol, Boolean inLove, String gender) {
         this.playerName = playerName;
@@ -136,6 +141,14 @@ public class Profile {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Ability> abilities) {
+        this.abilities = abilities;
     }
 
     @Override
