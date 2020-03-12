@@ -59,7 +59,7 @@
         </thead>
         <tbody>
 
-          <tr th:each="ability : ${abilityList}">
+          <!-- <tr th:each="ability : ${abilityList}">
             <td th:text="${ability.id}"><input hidden th:field="${ability.id}"></input></td>
             
             <td th:text="${ability.Picture}"><input hidden th:field="${ability.Picture}"></input></td>
@@ -74,31 +74,31 @@
 
             <td><input name="obtained" type="checkbox" th:checked="${ability.Obtained}"
                 onchange="calculationTimeLeft(id)" /></td>
-          </tr>
+          </tr> -->
 
-          <!--                 <tr th:each="ability, itemStat : *{abilityList}">-->
+                          <tr th:each="ability, itemStat : *{abilityList}">
 
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Id}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].id}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Picture}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Picture}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Name}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Name}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Level}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Level}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Description}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Description}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p>-->
-          <!--                        <input hidden th:field="*{abilityList[__${itemStat.index}__].Price}"></input>-->
-          <!--                      </td>-->
-          <!--                      <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].Obtained}" onchange="calculationTimeLeft(id)"></input></td>-->
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Id}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].id}"></input>
+                                </td>
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Picture}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].Picture}"></input>
+                                </td>
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Name}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].Name}"></input>
+                                </td>
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Level}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].Level}"></input>
+                                </td>
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Description}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].Description}"></input>
+                                </td>
+                                <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p>
+                                  <input hidden th:field="*{abilityList[__${itemStat.index}__].Price}"></input>
+                                </td>
+                                <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].Obtained}" onchange="calculationTimeLeft(id)"></input></td>
 
-          <!--                  </tr> -->
+                            </tr> 
 
         </tbody>
       </table>

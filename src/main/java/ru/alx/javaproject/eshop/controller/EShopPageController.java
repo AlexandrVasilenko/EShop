@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDto;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
 import ru.alx.javaproject.eshop.service.AbilityService;
@@ -35,7 +36,9 @@ public class EShopPageController {
     public ModelAndView eshopPageLoader() {
         ModelAndView modelAndView = new ModelAndView("EShop");
 
-        List<Ability> listOfAbilities = abilityService.findAll();
+        List<Ability> abilityList = abilityService.findAll();
+        AbilityResultDto list = new AbilityResultDto();
+        list.setAbilityList(abilityService.findAll());
         Profile profile;
         if(httpSession.getAttribute("currentPlayerId") != null){
             profile = profileService.findById((int) httpSession.getAttribute("currentPlayerId"));
@@ -43,20 +46,20 @@ public class EShopPageController {
             profile = new Profile("No Profile found","MeatEater",0 ,0 ,0 ,false,false,false,"");
         }
 
-        modelAndView.addObject("abilityList", listOfAbilities);
+        modelAndView.addObject("resultDTO", list);
         modelAndView.addObject("profile", profile);
+
         return modelAndView;
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView eshopListSubmit(@ModelAttribute List abilityList) {
+    public ModelAndView eshopListSubmit(@ModelAttribute("DTO") AbilityResultDto abilityList) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
-        List<Ability> list = abilityList;
         if(httpSession.getAttribute("currentPlayerId") == null){
             modelAndView.setViewName("redirect:EShop");
         } else {
             Profile profile = profileService.findById((int) httpSession.getAttribute("currentPlayerId"));
-            profile.setAbilities(list);
+            profile.setAbilities(abilityList.getAbilityList());
             profileService.save(profile);
         }
         return modelAndView;
