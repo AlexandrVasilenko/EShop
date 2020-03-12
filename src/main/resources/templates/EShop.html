@@ -10,7 +10,7 @@
                         <title>Mystery EShop</title>
                     </head>
                     
-                    <body>
+                    <body onload = "validationTime()">
                     
                     <div class="float-right">
                             <a href="./Contacts" ><img class="logo" src="../images/logo.jpg" alt="main page logo" width="500" height="150"/></a>
@@ -31,13 +31,14 @@
 <div class="container">
   <form th:object="${resultDTO}" method="post">
   <div>
-    <h3 th:text="'Player name: ' + ${profile.playerName}">Player name: Nameless</h3>
+    <h3 th:text="'Player name: ' + ${profile.playerName}"> Player name: Nameless</h3><br>
 </div>
-  <div>
-    <h3>Your time credit: <span style="font-size:30px" th:text="${profile.timeReserve} + ' hours'">111 hours</span>
+  <div class="container w-100">
+    <h3>Your time credit: <span id="timeReserve" style="font-size:30px" th:text="${profile.timeReserve}"></span></h3>
+      
       <span style="float:right">
-        <input class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy all"/>
-      </span></h3>
+        <input id="buyButton" class="btn btn-success btn-rounded z-depth-1" type="submit" value="Buy selected"/>
+      </span>
   </div>
   
         <table class="table table-hover table-primary">
@@ -82,7 +83,7 @@
                       <td><p th:text="*{abilityList[__${itemStat.index}__].Price}"></p>
                         <input hidden th:field="*{abilityList[__${itemStat.index}__].Price}"></input>
                       </td>
-                      <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].obtained}"></input></td>
+                      <td><input type="checkbox" th:field="*{abilityList[__${itemStat.index}__].obtained}" onchange="calculationTimeLeft(id)"></input></td>
 
                   </tr>
                     
@@ -98,6 +99,8 @@
 
 
 <script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/myscript.js"></script>
+<script th:src="${'./js/myscript.js'}" ></script>
 </body>
 
 

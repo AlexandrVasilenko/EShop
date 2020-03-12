@@ -22,6 +22,8 @@ public class Result {
     }
 
     public Result() {
+        this.playerId = -1;
+        this.abilityListString ="";
     }
 
     public int getPlayerId() {

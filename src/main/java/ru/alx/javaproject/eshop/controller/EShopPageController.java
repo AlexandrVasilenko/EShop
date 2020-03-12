@@ -1,18 +1,17 @@
 package ru.alx.javaproject.eshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.alx.javaproject.eshop.DTO.AbilityResultDTO;
+import ru.alx.javaproject.eshop.DTO.AbilityResultDto;
 import ru.alx.javaproject.eshop.entity.Ability;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.repository.AbilitiesRepository;
-import ru.alx.javaproject.eshop.repository.ProfileRepository;
-import ru.alx.javaproject.eshop.repository.ResultRepository;
+import ru.alx.javaproject.eshop.service.AbilityService;
+import ru.alx.javaproject.eshop.service.ProfileService;
+import ru.alx.javaproject.eshop.service.ResultService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,13 +22,13 @@ import java.util.List;
 public class EShopPageController {
 
     @Autowired
-    private ResultRepository resultRepository;
+    private ResultService resultService;
 
     @Autowired
-    private ProfileRepository profileRepository;
+    private ProfileService profileService;
 
     @Autowired
-    private AbilitiesRepository abilitiesRepository;
+    private AbilityService abilityService;
 
     @Autowired
     private HttpSession httpSession;
@@ -39,13 +38,18 @@ public class EShopPageController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView eshopPageLoader() {
-        System.out.println(httpServletRequest.getContextPath());
         ModelAndView modelAndView = new ModelAndView("EShop");
 
-        List<Ability> listOfAbilities = abilitiesRepository.findAll();
-        AbilityResultDTO list = new AbilityResultDTO();
-        list.setAbilityList(abilitiesRepository.findAll());
-        Profile profile = profileRepository.findOne((int) httpSession.getAttribute("currentPlayerId"));
+        List<Ability> listOfAbilities = abilityService.findAll();
+        AbilityResultDto list = new AbilityResultDto();
+        list.setAbilityList(abilityService.findAll());
+        Profile profile;
+        if(httpSession.getAttribute("currentPlayerId") != null){
+            profile = profileService.findOneById((int) httpSession.getAttribute("currentPlayerId"));
+        } else {
+            profile = new Profile("No Profile found","MeatEater",0 ,0 ,0 ,false,false,false,"");
+        }
+
 
         modelAndView.addObject("abilities", listOfAbilities);
         modelAndView.addObject("profile", profile);
@@ -54,9 +58,13 @@ public class EShopPageController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDTO resultDTO) {
+    public ModelAndView eshopListSubmit(@ModelAttribute AbilityResultDto resultDTO) {
         ModelAndView modelAndView = new ModelAndView("redirect:/Result");
-        resultRepository.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+        if(httpSession.getAttribute("currentPlayerId") == null){
+            modelAndView.setViewName("redirect:EShop");
+        } else {
+            resultService.save((int) httpSession.getAttribute("currentPlayerId"), resultDTO.getAbilityList());
+        }
         return modelAndView;
     }
 }

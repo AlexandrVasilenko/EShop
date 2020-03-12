@@ -1,3 +1,8 @@
+CREATE DATABASE eshopdb
+	CHARSET SET utf8;
+	
+USE eshopdb;
+
 CREATE TABLE `abilities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `picture` varchar(100) NOT NULL,

@@ -33,36 +33,35 @@
                 
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
-                                <h1>Login page</h1>
-                                <form th:object="${user}" th:action="@{/Login}" method="post">
-                                    <div style="display: none" id="invalidLoginNotifictation">
-                                        <div class="alert alert-danger">Invalid username or
-                                            password.</div>
+                                <h1>Registration</h1>
+                                <form th:object="${user}" th:action="@{/Registration}" method="post">
+                                    <div style="display: none" id="invalidLoginNotification">
+                                        <div class="alert alert-danger">User already exists!</div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="username">Username</label>: <input type="text"
+                                        <label for="username"> New User</label>: <input type="text"
                                             id="username" name="login" class="form-control"
                                             autofocus="autofocus" placeholder="Username" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="password">Password</label>: <input type="password"
+                                        <label for="password">Your password</label>: <input onkeyup="registrationError()" type="password" required minlength="5" maxlength="21"
                                             id="password" name="password" class="form-control"
                                             placeholder="Enter your password here..." />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Repeat your password</label>: <input id ="confirm_password" onkeyup="registrationError()" type="password"
+                                            class="form-control"/>
+                                            <span id='message'></span>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
                                                 <div class="d-flex" >
-                                                <input type="submit" name="login-submit" id="login-submit"
-                                                    class="form-control btn btn-primary" value="Log In" style="margin-right:20px" />
-                                                <input type="button" name="unregistered" id="unregistered" onclick="location.href ='./Welcome?isAdmin=false'"
-                                                    class="form-control btn btn-success" value="Without registration" />
+                                                <input type="submit" name="signup-submit" id="signup-submit" 
+                                                    class="form-control btn btn-primary" value="Sign up" style="margin-right:20px" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <span>New user? <a href="/" th:href="@{/Registration}">Register here</a></span>
                                     </div>
                                 </form>
                             </div>

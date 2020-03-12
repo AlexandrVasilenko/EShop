@@ -7,24 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ru.alx.javaproject.eshop.entity.Profile;
-import ru.alx.javaproject.eshop.repository.ProfileRepository;
+import ru.alx.javaproject.eshop.service.ProfileService;
 
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.Context;
 
 
 @Controller
 public class SurveyPageController {
 
     @Autowired
-    private ProfileRepository profileRepository;
+    private ProfileService profileService;
 
     @Autowired
     private HttpSession httpSession;
 
     @RequestMapping(value = "/Survey", method = RequestMethod.POST)
     public ModelAndView sendSurveyInfo(@ModelAttribute ("profile") Profile profile){
-        profileRepository.save(profile);
+        profileService.save(profile);
         httpSession.setAttribute("currentPlayerId", profile.getPlayerId());
         return new ModelAndView("redirect:/Profile/" + profile.getPlayerId());
 

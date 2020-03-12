@@ -5,7 +5,7 @@ import ru.alx.javaproject.eshop.entity.Ability;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbilityResultDTO {
+public class AbilityResultDto {
 
     private List<Ability> abilityList = new ArrayList<>();
 

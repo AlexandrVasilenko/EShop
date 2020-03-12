@@ -10,11 +10,10 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class AbilitiesRepository {
+public class AbilityRepositoryImpl implements AbilityRepository {
 
     @PersistenceContext
     private EntityManager em;
-
 
     public synchronized List<Ability> findAll() {
         List<Ability> listOfAbilities = em.createQuery("from Ability", Ability.class).getResultList();
