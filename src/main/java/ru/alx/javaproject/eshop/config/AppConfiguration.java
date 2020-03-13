@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class AppConfiguration {
 
-    @Autowired
+   /* @Autowired
     private Environment env;
 
     @Value("${server.context-path}")
@@ -49,6 +49,5 @@ public class AppConfiguration {
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>
     webServerFactoryCustomizer() {
         return factory -> factory.setContextPath(contextPath);
-    }
-
+    }*/
 }

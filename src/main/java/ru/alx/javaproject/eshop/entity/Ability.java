@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.Objects;
 
@@ -12,8 +14,8 @@ import java.util.Objects;
 public class Ability {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String picture;
     private String name;
     private String level;
@@ -21,7 +23,10 @@ public class Ability {
     private int price;
     private boolean obtained;
 
-    public Ability(Long id, String picture, String name, String level, String description, int price) {
+    @ManyToOne()
+    private Profile profile;
+
+    public Ability(int id, String picture, String name, String level, String description, int price) {
         this.id = id;
         this.picture = picture;
         this.name = name;
@@ -52,11 +57,11 @@ public class Ability {
         this.level = level;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

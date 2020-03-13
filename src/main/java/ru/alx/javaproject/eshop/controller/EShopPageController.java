@@ -14,6 +14,7 @@ import ru.alx.javaproject.eshop.service.ProfileService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -59,6 +60,9 @@ public class EShopPageController {
             modelAndView.setViewName("redirect:EShop");
         } else {
             Profile profile = profileService.findById((int) httpSession.getAttribute("currentPlayerId"));
+            //List<Ability> list = new ArrayList<>();
+            //abilityList.getAbilityList().stream().filter(ability -> ability.isObtained()).forEach(ability -> list.add(ability));
+            //profile.setAbilities(list);
             profile.setAbilities(abilityList.getAbilityList());
             profileService.save(profile);
         }

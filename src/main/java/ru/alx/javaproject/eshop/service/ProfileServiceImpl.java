@@ -15,7 +15,13 @@ public class ProfileServiceImpl implements ProfileService {
     private ProfileRepository repository;
 
     @Override
-    public void save(Profile p) {
+    public void save(Profile p){
+
+        if(repository.findById(p.getPlayerId()).isPresent() && !repository.findById(p.getPlayerId()).get().getAbilities().isEmpty()){
+            Profile profile = repository.findById(p.getPlayerId()).get();
+            profile.setAbilities(p.getAbilities());
+            repository.save(profile);
+        }
         repository.save(p);
     }
 

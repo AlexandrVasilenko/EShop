@@ -6,6 +6,8 @@ import ru.alx.javaproject.eshop.service.TimeReserveValidation;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,22 +19,41 @@ import java.util.Objects;
 public class Profile {
 
     @Id
-    @Column(name = "playerid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "playerId")
     private int playerId;
+
+    @Column(name = "playerAge", columnDefinition = "integer default 1")
     private int playerAge;
+
+    @Column(name = "sleepingHours", columnDefinition = "integer default 1")
     private int sleepingHours;
+
+    @Column(name = "sportActivity", columnDefinition = "integer default 1")
     private int sportActivity;
+
+    @Column(name = "timeReserve", columnDefinition = "integer default 1")
     private int timeReserve;
 
+    @Column(name = "playerName", columnDefinition = "varchar(255) default 'John'")
     private String playerName;
+
+    @Column(name = "nutritionType", columnDefinition = "varchar(255) default 'Vegan'")
     private String nutritionType;
+
+    @Column(name = "gender", columnDefinition = "varchar(255) default 'Male'")
     private String gender;
 
+    @Column(name = "smoking", columnDefinition = "boolean default false")
     private boolean smoking;
+
+    @Column(name = "alcohol", columnDefinition = "boolean default false")
     private boolean alcohol;
+
+    @Column(name = "inLove", columnDefinition = "boolean default false")
     private boolean inLove;
 
-    @OneToMany (fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Ability> abilities;
 
     public Profile(String playerName, String nutritionType, int sportActivity, int playerAge, int sleepingHours, Boolean smoking, Boolean alcohol, Boolean inLove, String gender) {
@@ -51,9 +72,7 @@ public class Profile {
         this.timeReserve = trvs.calculateTimeReserve(gender, nutritionType, playerAge, sleepingHours, sportActivity, this.smoking, this.alcohol, this.inLove);
     }
 
-    private Profile() {
-
-    }
+    private Profile() {    }
 
     public int getTimeReserve() {
         return timeReserve;
@@ -154,17 +173,22 @@ public class Profile {
     @Override
     public String toString() {
         return "Profile{" +
-                "playerName='" + playerName + '\'' +
-                ", nutritionType='" + nutritionType + '\'' +
+                "playerId=" + playerId +
                 ", playerAge=" + playerAge +
                 ", sleepingHours=" + sleepingHours +
                 ", sportActivity=" + sportActivity +
+                ", timeReserve=" + timeReserve +
+                ", playerName='" + playerName + '\'' +
+                ", nutritionType='" + nutritionType + '\'' +
+                ", gender='" + gender + '\'' +
                 ", smoking=" + smoking +
                 ", alcohol=" + alcohol +
                 ", inLove=" + inLove +
-                ", gender=" + gender +
+                ", abilities=" + abilities +
                 '}';
     }
+
+
 
     @Override
     public boolean equals(Object o) {
